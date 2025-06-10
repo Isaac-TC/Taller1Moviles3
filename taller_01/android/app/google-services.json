@@ -1,0 +1,68 @@
+{
+  "project_info": {
+    "project_number": "765214815459",
+    "firebase_url": "https://taller1moviles3-default-rtdb.firebaseio.com",
+    "project_id": "taller1moviles3",
+    "storage_bucket": "taller1moviles3.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:765214815459:android:eff6fdf6b75c2ce51cc1d6",
+        "android_client_info": {
+          "package_name": "com.example.app_fire"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDYNLcOp3zFrFJ77aeyeoN_fn-ORYbYgTc"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:765214815459:android:10c077a4074141a01cc1d6",
+        "android_client_info": {
+          "package_name": "com.example.taller_01"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDYNLcOp3zFrFJ77aeyeoN_fn-ORYbYgTc"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:765214815459:android:66031e55c4d5e9a31cc1d6",
+        "android_client_info": {
+          "package_name": "com.example.taller_1"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDYNLcOp3zFrFJ77aeyeoN_fn-ORYbYgTc"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
