@@ -1,0 +1,22 @@
+{
+"peliculas": [
+{
+"titulo": "Lilo & Stitch",
+"anio": 2025,
+"descripcion": "La divertidísima y conmovedora historia de una solitaria niña hawaiana y el extraterrestre fugitivo que ayuda a reconstruir su familia rota. Una reinterpretación en acción real del clásico animado de 2002",
+"enlaces": {
+"url": "https://www.imdb.com/es-es/title/tt11655566/",
+"trailer": "https://youtu.be/VWqJifMMgZE?si=hNtivDY-HZwEgoaM",
+"image": "https://artworks.thetvdb.com/banners/v4/movie/345428/posters/682a3032a145e.jpg"
+},
+"detalles": {
+"duracion": "148 min",
+"director": "Christopher Nolan"
+},
+"genero": [
+"Plataforma",
+"Aventura"
+]
+}
+]
+}
