@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:firebase_auth/firebase_auth.dart';
+import 'package:firebase_database/firebase_database.dart';
 
 class RegisterScreen extends StatefulWidget {
   const RegisterScreen({super.key});
@@ -9,21 +10,33 @@ class RegisterScreen extends StatefulWidget {
 }
 
 class _RegisterScreenState extends State<RegisterScreen> {
+  final nameController = TextEditingController();
+  final lastNameController = TextEditingController();
+  final ageController = TextEditingController();
+  final idController = TextEditingController();
   final emailController = TextEditingController();
   final passwordController = TextEditingController();
 
   @override
   void dispose() {
+    nameController.dispose();
+    lastNameController.dispose();
+    ageController.dispose();
+    idController.dispose();
     emailController.dispose();
     passwordController.dispose();
     super.dispose();
   }
 
   void handleRegister(BuildContext context) async {
+    final name = nameController.text.trim();
+    final lastName = lastNameController.text.trim();
+    final age = ageController.text.trim();
+    final id = idController.text.trim();
     final email = emailController.text.trim();
     final password = passwordController.text.trim();
 
-    if (email.isEmpty || password.isEmpty) {
+    if ([name, lastName, age, id, email, password].any((e) => e.isEmpty)) {
       ScaffoldMessenger.of(context).showSnackBar(
         const SnackBar(content: Text('Completa todos los campos')),
       );
@@ -31,17 +44,38 @@ class _RegisterScreenState extends State<RegisterScreen> {
     }
 
     try {
-      await FirebaseAuth.instance.createUserWithEmailAndPassword(
+      final credential = await FirebaseAuth.instance.createUserWithEmailAndPassword(
         email: email,
         password: password,
       );
 
-      ScaffoldMessenger.of(context).showSnackBar(
-        const SnackBar(content: Text('¡Registro exitoso! Inicia sesión.')),
+      final uid = credential.user!.uid;
+
+      final ref = FirebaseDatabase.instance.ref();
+      await ref.child('personas').child(uid).set({
+        'name': name,
+        'lastname': lastName,
+        'age': int.tryParse(age),
+        'cedula': id,
+        'email': email,
+      });
+
+      showDialog(
+        context: context,
+        builder: (ctx) => AlertDialog(
+          title: const Text('Registro exitoso'),
+          content: const Text('Tu cuenta ha sido creada correctamente.'),
+          actions: [
+            TextButton(
+              onPressed: () {
+                Navigator.of(ctx).pop();
+                Navigator.pushReplacementNamed(context, '/');
+              },
+              child: const Text('Aceptar'),
+            ),
+          ],
+        ),
       );
-
-      Navigator.pushReplacementNamed(context, '/'); // Redirige al login
-
     } on FirebaseAuthException catch (e) {
       String errorMsg = 'Error al registrar';
       if (e.code == 'email-already-in-use') {
@@ -67,17 +101,22 @@ class _RegisterScreenState extends State<RegisterScreen> {
         child: SingleChildScrollView(
           child: Column(
             children: [
-              TextField(
-                controller: emailController,
-                decoration: const InputDecoration(labelText: 'Correo'),
-              ),
-              const SizedBox(height: 16),
+              TextField(controller: nameController, decoration: const InputDecoration(labelText: 'Nombres')),
+              const SizedBox(height: 8),
+              TextField(controller: lastNameController, decoration: const InputDecoration(labelText: 'Apellidos')),
+              const SizedBox(height: 8),
+              TextField(controller: ageController, keyboardType: TextInputType.number, decoration: const InputDecoration(labelText: 'Edad')),
+              const SizedBox(height: 8),
+              TextField(controller: idController, decoration: const InputDecoration(labelText: 'Cédula')),
+              const SizedBox(height: 8),
+              TextField(controller: emailController, decoration: const InputDecoration(labelText: 'Correo')),
+              const SizedBox(height: 8),
               TextField(
                 controller: passwordController,
-                decoration: const InputDecoration(labelText: 'Contraseña'),
                 obscureText: true,
+                decoration: const InputDecoration(labelText: 'Contraseña'),
               ),
-              const SizedBox(height: 32),
+              const SizedBox(height: 24),
               ElevatedButton(
                 onPressed: () => handleRegister(context),
                 child: const Text('Registrarse'),

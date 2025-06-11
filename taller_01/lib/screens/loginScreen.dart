@@ -19,13 +19,13 @@ class _LoginScreenState extends State<LoginScreen> {
     super.dispose();
   }
 
-  void handleLogin(BuildContext context) async {
+  void handleLogin() async {
     final email = emailController.text.trim();
     final password = passwordController.text.trim();
 
     if (email.isEmpty || password.isEmpty) {
       ScaffoldMessenger.of(context).showSnackBar(
-        SnackBar(content: Text('Por favor, completa todos los campos')),
+        const SnackBar(content: Text('Por favor, completa todos los campos')),
       );
       return;
     }
@@ -42,6 +42,8 @@ class _LoginScreenState extends State<LoginScreen> {
         errorMsg = 'Usuario no encontrado';
       } else if (e.code == 'wrong-password') {
         errorMsg = 'Contraseña incorrecta';
+      } else {
+        errorMsg = e.message ?? 'Error desconocido';
       }
 
       ScaffoldMessenger.of(context).showSnackBar(
@@ -55,7 +57,7 @@ class _LoginScreenState extends State<LoginScreen> {
     return Scaffold(
       body: Stack(
         children: [
-          // Fondo
+          // Imagen de fondo
           Container(
             decoration: const BoxDecoration(
               image: DecorationImage(
@@ -64,7 +66,7 @@ class _LoginScreenState extends State<LoginScreen> {
               ),
             ),
           ),
-          // Contenido
+          // Contenido centrado
           Center(
             child: SingleChildScrollView(
               child: Padding(
@@ -109,7 +111,7 @@ class _LoginScreenState extends State<LoginScreen> {
                         ),
                         const SizedBox(height: 32),
                         ElevatedButton(
-                          onPressed: () => handleLogin(context),
+                          onPressed: handleLogin,
                           child: const Text('Ingresar'),
                         ),
                         TextButton(
