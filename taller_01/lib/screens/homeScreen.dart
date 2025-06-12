@@ -1,8 +1,28 @@
 import 'package:flutter/material.dart';
 import 'package:firebase_auth/firebase_auth.dart';
+import 'package:taller_01/screens/BuscarScreen.dart';
+import 'package:taller_01/screens/FiltroScreen.dart';
+import 'package:taller_01/screens/PeliculaSceen.dart';
+import 'package:taller_01/screens/perfilScreen.dart';
 
-class HomeScreen extends StatelessWidget {
+
+
+class HomeScreen extends StatefulWidget {
   const HomeScreen({super.key});
+
+  @override
+  State<HomeScreen> createState() => _HomeScreenState();
+}
+
+class _HomeScreenState extends State<HomeScreen> {
+  int indice = 0;
+
+  final List<Widget> paginas = [
+    const PeliculasMirar(),
+    const BuscarPelicula(),
+    const FiltroPelicula(),
+    const PerfilUser(),
+  ];
 
   void _logout(BuildContext context) async {
     await FirebaseAuth.instance.signOut();
@@ -33,8 +53,37 @@ class HomeScreen extends StatelessWidget {
           ],
         ),
       ),
-      body: const Center(
-        child: Text('Bienvenido a la aplicación', style: TextStyle(fontSize: 20)),
+      body: IndexedStack(
+        index: indice,
+        children: paginas,
+      ),
+      bottomNavigationBar: BottomNavigationBar(
+        currentIndex: indice,
+        onTap: (value) {
+          setState(() {
+            indice = value;
+          });
+        },
+        selectedItemColor: const Color.fromRGBO(255, 3, 3, 1),
+        unselectedItemColor: Colors.grey,
+        items: const [
+          BottomNavigationBarItem(
+            icon: Icon(Icons.local_movies_outlined),
+            label: "Películas",
+          ),
+          BottomNavigationBarItem(
+            icon: Icon(Icons.search),
+            label: "Buscar",
+          ),
+          BottomNavigationBarItem(
+            icon: Icon(Icons.book),
+            label: "Guardado",
+          ),
+          BottomNavigationBarItem(
+            icon: Icon(Icons.person),
+            label: "Perfil",
+          ),
+        ],
       ),
     );
   }
