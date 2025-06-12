@@ -20,7 +20,7 @@ class _CuerpoState extends State<Cuerpo> {
   int indice = 0;
   final List<Widget> paginas = [
     PeliculasMirar(),     
-    Buscarpelicula(),     
+    BuscarPelicula(),     
     FiltroPelicula(),    
     PerfilUser()         
   ];
