@@ -1,0 +1,169 @@
+{
+  "peliculas": [
+    {
+      "titulo": "Lilo & Stitch",
+      "anio": 2025,
+      "descripcion": "La divertidísima y conmovedora historia de una solitaria niña hawaiana y el extraterrestre fugitivo que ayuda a reconstruir su familia rota. Una reinterpretación en acción real del clásico animado de 2002.",
+      "enlaces": {
+        "url": "https://www.imdb.com/es-es/title/tt11655566/",
+        "trailer": "https://youtu.be/VWqJifMMgZE?si=hNtivDY-HZwEgoaM",
+        "image": "https://artworks.thetvdb.com/banners/v4/movie/345428/posters/682a3032a145e.jpg"
+      },
+      "detalles": {
+        "duracion": "108 min",
+        "director": "Dean Fleischer-Camp"
+      },
+      "genero": ["aventura", "Familiar", "Ciencia Ficcion"]
+    },
+    {
+      "titulo": "Inside Out 2",
+      "anio": 2024,
+      "descripcion": "Riley ahora es una adolescente enfrentando nuevas emociones como ansiedad, vergüenza y envidia. Secuela de la aclamada película animada de Pixar.",
+      "enlaces": {
+        "url": "https://www.imdb.com/title/tt11304740/",
+        "trailer": "https://youtu.be/LEjhY15eCx0",
+        "image": "https://m.media-amazon.com/images/M/MV5BNjhkZDA3NGMtYTZiMi00ZTVkLTliZTUtOGMzYmE2YTJkOWY0XkEyXkFqcGdeQXVyMTUzMTg2ODkz._V1_.jpg"
+      },
+      "detalles": {
+        "duracion": "100 min",
+        "director": "Kelsey Mann"
+      },
+      "genero": ["Animación", "Aventura", "Comedia"]
+    },
+    {
+      "titulo": "Furiosa: A Mad Max Saga",
+      "anio": 2024,
+      "descripcion": "La historia de origen de Furiosa antes de 'Fury Road', revelando cómo fue secuestrada y luchó por su libertad.",
+      "enlaces": {
+        "url": "https://www.imdb.com/title/tt12037194/",
+        "trailer": "https://youtu.be/XJMuhwVlca4",
+        "image": "https://m.media-amazon.com/images/M/MV5BYmRlZTJjYzItNTA0My00NzZkLTllNDItZTk2MDM2YmI3ZmNhXkEyXkFqcGdeQXVyMTUzMTg2ODkz._V1_.jpg"
+      },
+      "detalles": {
+        "duracion": "148 min",
+        "director": "George Miller"
+      },
+      "genero": ["Acción", "Aventura", "Ciencia Ficción"]
+    },
+    {
+      "titulo": "Deadpool & Wolverine",
+      "anio": 2024,
+      "descripcion": "Deadpool regresa con una misión multiversal que lo une con Wolverine. Humor irreverente, acción sin filtros y muchos cameos explosivos.",
+      "enlaces": {
+        "url": "https://www.imdb.com/title/tt6263850/",
+        "trailer": "https://youtu.be/tL4McUzXfFI",
+        "image": "https://m.media-amazon.com/images/M/MV5BZjY3NTE1Y2EtNTcwNS00ZmU2LTg4ZDEtNzc5ZmFlZTBlMmE3XkEyXkFqcGdeQXVyMTUzMTg2ODkz._V1_.jpg"
+      },
+      "detalles": {
+        "duracion": "127 min",
+        "director": "Shawn Levy"
+      },
+      "genero": ["Acción", "Comedia", "Superhéroes"]
+    },
+    {
+      "titulo": "The Garfield Movie",
+      "anio": 2024,
+      "descripcion": "El famoso gato amante de la lasaña regresa en una nueva aventura animada llena de humor, cuando descubre a su padre perdido.",
+      "enlaces": {
+        "url": "https://www.imdb.com/title/tt5779284/",
+        "trailer": "https://youtu.be/BlfL7qPm9Oc",
+        "image": "https://m.media-amazon.com/images/M/MV5BNGVkNzljNmUtYzI4Yy00ZTJjLWI4ZDgtNGEyNzJjYzNjZDJjXkEyXkFqcGdeQXVyODkzNTgxMDg@._V1_.jpg"
+      },
+      "detalles": {
+        "duracion": "101 min",
+        "director": "Mark Dindal"
+      },
+      "genero": ["Animación", "Comedia", "Familiar"]
+    },
+    {
+      "titulo": "Mission: Impossible – The Final Reckoning",
+      "anio": 2025,
+      "descripcion": "Tom Cruise vuelve como Ethan Hunt en la última misión imposible, una espectacular despedida cargada de acción épica.",
+      "enlaces": {
+        "url": "https://www.imdb.com/title/ttXXXXXXX/",
+        "trailer": null,
+        "image": null
+      },
+      "detalles": {
+        "duracion": "140 min",
+        "director": "Christopher McQuarrie"
+      },
+      "genero": ["Acción", "Aventura", "Thriller"]
+    },
+    {
+      "titulo": "28 Years Later",
+      "anio": 2025,
+      "descripcion": "Tercera entrega de la saga postapocalíptica dirigida por Danny Boyle, con Jodie Comer, Aaron Taylor‑Johnson y Ralph Fiennes.",
+      "enlaces": {
+        "url": "https://en.wikipedia.org/wiki/28_Years_Later",
+        "trailer": null,
+        "image": null
+      },
+      "detalles": {
+        "duracion": "115 min",
+        "director": "Danny Boyle"
+      },
+      "genero": ["Terror", "Ciencia Ficción", "Suspense"]
+    },
+    {
+      "titulo": "The Running Man",
+      "anio": 2025,
+      "descripcion": "Adaptación fiel de la novela de Stephen King, dirigida por Edgar Wright, donde Glen Powell es cazado vivo en un peligroso show.",
+      "enlaces": {
+        "url": "https://en.wikipedia.org/wiki/The_Running_Man_%282025_film%29",
+        "trailer": null,
+        "image": null
+      },
+      "detalles": {
+        "duracion": "130 min",
+        "director": "Edgar Wright"
+      },
+      "genero": ["Acción", "Ciencia Ficción", "Thriller"]
+    },
+    {
+      "titulo": "Frankenstein",
+      "anio": 2025,
+      "descripcion": "Versión gótica dirigida por Guillermo del Toro, con Oscar Isaac como el científico obsesionado y Mia Goth como su creación.",
+      "enlaces": {
+        "url": "https://en.wikipedia.org/wiki/Frankenstein_%282025_film%29",
+        "trailer": null,
+        "image": null
+      },
+      "detalles": {
+        "duracion": "150 min",
+        "director": "Guillermo del Toro"
+      },
+      "genero": ["Terror", "Fantasía", "Drama"]
+    },
+    {
+      "titulo": "Bugonia",
+      "anio": 2025,
+      "descripcion": "Comedia de ciencia ficción de Yorgos Lanthimos, con Emma Stone y Jesse Plemons, que gira en torno a la creencia conspirativa de que una ejecutiva es un alien.",
+      "enlaces": {
+        "url": "https://en.wikipedia.org/wiki/Bugonia_%28film%29",
+        "trailer": null,
+        "image": null
+      },
+      "detalles": {
+        "duracion": "115 min",
+        "director": "Yorgos Lanthimos"
+      },
+      "genero": ["Comedia", "Ciencia Ficción", "Suspense"]
+    },
+    {
+      "titulo": "Babygirl",
+      "anio": 2024,
+      "descripcion": "Thriller erótico dirigido por Halina Reijn, protagonizado por Nicole Kidman en un peligroso romance con un joven interno.",
+      "enlaces": {
+        "url": "https://en.wikipedia.org/wiki/Babygirl",
+        "trailer": null,
+        "image": null
+      },
+      "detalles": {
+        "duracion": "115 min",
+        "director": "Halina Reijn"
+      },
+      "genero": ["Thriller", "Drama", "Erótico"]
+    }
+  ]
+}
