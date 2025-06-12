@@ -22,7 +22,7 @@
       "enlaces": {
         "url": "https://www.imdb.com/title/tt11304740/",
         "trailer": "https://youtu.be/LEjhY15eCx0",
-        "image": "https://m.media-amazon.com/images/M/MV5BNjhkZDA3NGMtYTZiMi00ZTVkLTliZTUtOGMzYmE2YTJkOWY0XkEyXkFqcGdeQXVyMTUzMTg2ODkz._V1_.jpg"
+        "image": "https://artworks.thetvdb.com/banners/v4/movie/339957/posters/65edc00f2b9ba.jpg"
       },
       "detalles": {
         "duracion": "100 min",
@@ -37,7 +37,7 @@
       "enlaces": {
         "url": "https://www.imdb.com/title/tt12037194/",
         "trailer": "https://youtu.be/XJMuhwVlca4",
-        "image": "https://m.media-amazon.com/images/M/MV5BYmRlZTJjYzItNTA0My00NzZkLTllNDItZTk2MDM2YmI3ZmNhXkEyXkFqcGdeQXVyMTUzMTg2ODkz._V1_.jpg"
+        "image": "https://artworks.thetvdb.com/banners/v4/movie/157390/posters/6579814224f7c.jpg"
       },
       "detalles": {
         "duracion": "148 min",
@@ -52,7 +52,7 @@
       "enlaces": {
         "url": "https://www.imdb.com/title/tt6263850/",
         "trailer": "https://youtu.be/tL4McUzXfFI",
-        "image": "https://m.media-amazon.com/images/M/MV5BZjY3NTE1Y2EtNTcwNS00ZmU2LTg4ZDEtNzc5ZmFlZTBlMmE3XkEyXkFqcGdeQXVyMTUzMTg2ODkz._V1_.jpg"
+        "image": "https://artworks.thetvdb.com/banners/v4/movie/49196/posters/6626684077855.jpg"
       },
       "detalles": {
         "duracion": "127 min",
@@ -67,7 +67,7 @@
       "enlaces": {
         "url": "https://www.imdb.com/title/tt5779284/",
         "trailer": "https://youtu.be/BlfL7qPm9Oc",
-        "image": "https://m.media-amazon.com/images/M/MV5BNGVkNzljNmUtYzI4Yy00ZTJjLWI4ZDgtNGEyNzJjYzNjZDJjXkEyXkFqcGdeQXVyODkzNTgxMDg@._V1_.jpg"
+        "image": "https://artworks.thetvdb.com/banners/v4/movie/297491/posters/6552314d5e0bc.jpg"
       },
       "detalles": {
         "duracion": "101 min",
@@ -80,9 +80,9 @@
       "anio": 2025,
       "descripcion": "Tom Cruise vuelve como Ethan Hunt en la última misión imposible, una espectacular despedida cargada de acción épica.",
       "enlaces": {
-        "url": "https://www.imdb.com/title/ttXXXXXXX/",
-        "trailer": null,
-        "image": null
+        "url": "https://www.imdb.com/es-es/title/tt9603208/",
+        "trailer": "https://www.youtube.com/watch?v=cPaEof1KJDg",
+        "image": "https://artworks.thetvdb.com/banners/v4/movie/52001/posters/6733c59847bff.jpg"
       },
       "detalles": {
         "duracion": "140 min",
@@ -96,8 +96,8 @@
       "descripcion": "Tercera entrega de la saga postapocalíptica dirigida por Danny Boyle, con Jodie Comer, Aaron Taylor‑Johnson y Ralph Fiennes.",
       "enlaces": {
         "url": "https://en.wikipedia.org/wiki/28_Years_Later",
-        "trailer": null,
-        "image": null
+        "trailer": "https://www.youtube.com/watch?v=mcvLKldPM08",
+        "image": "https://artworks.thetvdb.com/banners/v4/movie/307356/posters/6669bd0914543.jpg"
       },
       "detalles": {
         "duracion": "115 min",
@@ -111,59 +111,14 @@
       "descripcion": "Adaptación fiel de la novela de Stephen King, dirigida por Edgar Wright, donde Glen Powell es cazado vivo en un peligroso show.",
       "enlaces": {
         "url": "https://en.wikipedia.org/wiki/The_Running_Man_%282025_film%29",
-        "trailer": null,
-        "image": null
+        "trailer": "https://www.youtube.com/watch?v=n74ibtuN9I4",
+        "image": "https://artworks.thetvdb.com/banners/v4/movie/1500/posters/68275eff12cd4.jpg"
       },
       "detalles": {
         "duracion": "130 min",
         "director": "Edgar Wright"
       },
       "genero": ["Acción", "Ciencia Ficción", "Thriller"]
-    },
-    {
-      "titulo": "Frankenstein",
-      "anio": 2025,
-      "descripcion": "Versión gótica dirigida por Guillermo del Toro, con Oscar Isaac como el científico obsesionado y Mia Goth como su creación.",
-      "enlaces": {
-        "url": "https://en.wikipedia.org/wiki/Frankenstein_%282025_film%29",
-        "trailer": null,
-        "image": null
-      },
-      "detalles": {
-        "duracion": "150 min",
-        "director": "Guillermo del Toro"
-      },
-      "genero": ["Terror", "Fantasía", "Drama"]
-    },
-    {
-      "titulo": "Bugonia",
-      "anio": 2025,
-      "descripcion": "Comedia de ciencia ficción de Yorgos Lanthimos, con Emma Stone y Jesse Plemons, que gira en torno a la creencia conspirativa de que una ejecutiva es un alien.",
-      "enlaces": {
-        "url": "https://en.wikipedia.org/wiki/Bugonia_%28film%29",
-        "trailer": null,
-        "image": null
-      },
-      "detalles": {
-        "duracion": "115 min",
-        "director": "Yorgos Lanthimos"
-      },
-      "genero": ["Comedia", "Ciencia Ficción", "Suspense"]
-    },
-    {
-      "titulo": "Babygirl",
-      "anio": 2024,
-      "descripcion": "Thriller erótico dirigido por Halina Reijn, protagonizado por Nicole Kidman en un peligroso romance con un joven interno.",
-      "enlaces": {
-        "url": "https://en.wikipedia.org/wiki/Babygirl",
-        "trailer": null,
-        "image": null
-      },
-      "detalles": {
-        "duracion": "115 min",
-        "director": "Halina Reijn"
-      },
-      "genero": ["Thriller", "Drama", "Erótico"]
-    }
+    } 
   ]
 }
