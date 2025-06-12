@@ -38,7 +38,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
 
     if ([name, lastName, age, id, email, password].any((e) => e.isEmpty)) {
       ScaffoldMessenger.of(context).showSnackBar(
-        const SnackBar(content: Text('Completa todos los campos')),
+        const SnackBar(content: Text('Por favor, complete todos los campos')),
       );
       return;
     }
@@ -50,7 +50,6 @@ class _RegisterScreenState extends State<RegisterScreen> {
       );
 
       final uid = credential.user!.uid;
-
       final ref = FirebaseDatabase.instance.ref();
       await ref.child('personas').child(uid).set({
         'name': name,
@@ -95,33 +94,135 @@ class _RegisterScreenState extends State<RegisterScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: const Text('Registro')),
-      body: Padding(
-        padding: const EdgeInsets.all(32.0),
+      backgroundColor: Colors.black,
+      body: Center(
         child: SingleChildScrollView(
-          child: Column(
-            children: [
-              TextField(controller: nameController, decoration: const InputDecoration(labelText: 'Nombres')),
-              const SizedBox(height: 8),
-              TextField(controller: lastNameController, decoration: const InputDecoration(labelText: 'Apellidos')),
-              const SizedBox(height: 8),
-              TextField(controller: ageController, keyboardType: TextInputType.number, decoration: const InputDecoration(labelText: 'Edad')),
-              const SizedBox(height: 8),
-              TextField(controller: idController, decoration: const InputDecoration(labelText: 'Cédula')),
-              const SizedBox(height: 8),
-              TextField(controller: emailController, decoration: const InputDecoration(labelText: 'Correo')),
-              const SizedBox(height: 8),
-              TextField(
-                controller: passwordController,
-                obscureText: true,
-                decoration: const InputDecoration(labelText: 'Contraseña'),
-              ),
-              const SizedBox(height: 24),
-              ElevatedButton(
-                onPressed: () => handleRegister(context),
-                child: const Text('Registrarse'),
-              ),
-            ],
+          child: Padding(
+            padding: const EdgeInsets.fromLTRB(24, 80, 24, 24),
+            child: Column(
+              mainAxisSize: MainAxisSize.min,
+              crossAxisAlignment: CrossAxisAlignment.center,
+              children: [
+                // Logo en la parte superior
+                Image.asset(
+                  'assets/images/logo1.png',
+                  width: 150,
+                  height: 150,
+                ),
+                const SizedBox(height: 32),
+                // Card de registro debajo del logo
+                Card(
+                  color: const Color.fromARGB(255, 85, 80, 80).withOpacity(0.6),
+                  elevation: 10,
+                  shape: RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(16)),
+                  child: Padding(
+                    padding: const EdgeInsets.all(24.0),
+                    child: Column(
+                      mainAxisSize: MainAxisSize.min,
+                      children: [
+                        const Text(
+                          'Registro',
+                          style: TextStyle(
+                            fontSize: 26,
+                            fontWeight: FontWeight.bold,
+                            color: Colors.white,
+                          ),
+                        ),
+                        const SizedBox(height: 24),
+                        TextField(
+                          controller: nameController,
+                          style: const TextStyle(color: Colors.white),
+                          decoration: const InputDecoration(
+                            labelText: 'Nombres',
+                            labelStyle: TextStyle(color: Colors.white),
+                            enabledBorder: UnderlineInputBorder(
+                              borderSide: BorderSide(color: Colors.white),
+                            ),
+                          ),
+                        ),
+                        const SizedBox(height: 16),
+                        TextField(
+                          controller: lastNameController,
+                          style: const TextStyle(color: Colors.white),
+                          decoration: const InputDecoration(
+                            labelText: 'Apellidos',
+                            labelStyle: TextStyle(color: Colors.white),
+                            enabledBorder: UnderlineInputBorder(
+                              borderSide: BorderSide(color: Colors.white),
+                            ),
+                          ),
+                        ),
+                        const SizedBox(height: 16),
+                        TextField(
+                          controller: ageController,
+                          keyboardType: TextInputType.number,
+                          style: const TextStyle(color: Colors.white),
+                          decoration: const InputDecoration(
+                            labelText: 'Edad',
+                            labelStyle: TextStyle(color: Colors.white),
+                            enabledBorder: UnderlineInputBorder(
+                              borderSide: BorderSide(color: Colors.white),
+                            ),
+                          ),
+                        ),
+                        const SizedBox(height: 16),
+                        TextField(
+                          controller: idController,
+                          style: const TextStyle(color: Colors.white),
+                          decoration: const InputDecoration(
+                            labelText: 'Cédula',
+                            labelStyle: TextStyle(color: Colors.white),
+                            enabledBorder: UnderlineInputBorder(
+                              borderSide: BorderSide(color: Colors.white),
+                            ),
+                          ),
+                        ),
+                        const SizedBox(height: 16),
+                        TextField(
+                          controller: emailController,
+                          keyboardType: TextInputType.emailAddress,
+                          style: const TextStyle(color: Colors.white),
+                          decoration: const InputDecoration(
+                            labelText: 'Correo',
+                            labelStyle: TextStyle(color: Colors.white),
+                            enabledBorder: UnderlineInputBorder(
+                              borderSide: BorderSide(color: Colors.white),
+                            ),
+                          ),
+                        ),
+                        const SizedBox(height: 16),
+                        TextField(
+                          controller: passwordController,
+                          obscureText: true,
+                          style: const TextStyle(color: Colors.white),
+                          decoration: const InputDecoration(
+                            labelText: 'Contraseña',
+                            labelStyle: TextStyle(color: Colors.white),
+                            enabledBorder: UnderlineInputBorder(
+                              borderSide: BorderSide(color: Colors.white),
+                            ),
+                          ),
+                        ),
+                        const SizedBox(height: 32),
+                        ElevatedButton(
+                          onPressed: () => handleRegister(context),
+                          child: const Text('Registrarse'),
+                        ),
+                        const SizedBox(height: 8),
+                        TextButton(
+                          onPressed: () => Navigator.pop(context),
+                          child: const Text(
+                            'Ya tengo una cuenta',
+                            style: TextStyle(color: Colors.white),
+                          ),
+                        ),
+                      ],
+                    ),
+                  ),
+                ),
+              ],
+            ),
           ),
         ),
       ),
