@@ -17,9 +17,9 @@ class _EditarPerfilScreenState extends State<EditarPerfilScreen> {
 
   late TextEditingController nameController;
   late TextEditingController lastNameController;
-  late TextEditingController ageController;
   late TextEditingController cedulaController;
   late TextEditingController emailController;
+  late String edad;
 
   @override
   void initState() {
@@ -28,23 +28,16 @@ class _EditarPerfilScreenState extends State<EditarPerfilScreen> {
 
     nameController = TextEditingController(text: widget.datos['name']);
     lastNameController = TextEditingController(text: widget.datos['lastname']);
-    ageController = TextEditingController(text: widget.datos['age'].toString());
     cedulaController = TextEditingController(text: widget.datos['cedula']);
     emailController = TextEditingController(text: widget.datos['email']);
+    edad = widget.datos['age'].toString();
   }
 
   void guardarCambios() async {
-    if ([nameController.text, lastNameController.text, ageController.text, cedulaController.text, emailController.text].any((e) => e.trim().isEmpty)) {
+    if ([nameController.text, lastNameController.text, cedulaController.text, emailController.text]
+        .any((e) => e.trim().isEmpty)) {
       ScaffoldMessenger.of(context).showSnackBar(
         const SnackBar(content: Text('❗ Todos los campos son obligatorios')),
-      );
-      return;
-    }
-
-    final edad = int.tryParse(ageController.text.trim());
-    if (edad == null || edad < 0) {
-      ScaffoldMessenger.of(context).showSnackBar(
-        const SnackBar(content: Text('❗ Edad inválida')),
       );
       return;
     }
@@ -52,7 +45,6 @@ class _EditarPerfilScreenState extends State<EditarPerfilScreen> {
     await ref.update({
       'name': nameController.text.trim(),
       'lastname': lastNameController.text.trim(),
-      'age': edad,
       'cedula': cedulaController.text.trim(),
       'email': emailController.text.trim(),
     });
@@ -65,20 +57,64 @@ class _EditarPerfilScreenState extends State<EditarPerfilScreen> {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(title: const Text('Editar perfil')),
-      body: Padding(
-        padding: const EdgeInsets.all(20),
-        child: ListView(
-          children: [
-            TextField(controller: nameController, decoration: const InputDecoration(labelText: 'Nombre')),
-            TextField(controller: lastNameController, decoration: const InputDecoration(labelText: 'Apellido')),
-            TextField(controller: ageController, decoration: const InputDecoration(labelText: 'Edad'), keyboardType: TextInputType.number),
-            TextField(controller: cedulaController, decoration: const InputDecoration(labelText: 'Cédula')),
-            TextField(controller: emailController, decoration: const InputDecoration(labelText: 'Correo')),
-            const SizedBox(height: 20),
-            ElevatedButton(onPressed: guardarCambios, child: const Text('Guardar'))
-          ],
+    return Theme(
+      data: ThemeData.dark().copyWith(
+        primaryColor: Colors.blueAccent,
+        scaffoldBackgroundColor: Colors.black,
+        inputDecorationTheme: const InputDecorationTheme(
+          labelStyle: TextStyle(color: Colors.white70),
+          enabledBorder: UnderlineInputBorder(
+              borderSide: BorderSide(color: Colors.white30)),
+          focusedBorder:
+              UnderlineInputBorder(borderSide: BorderSide(color: Colors.blueAccent)),
+        ),
+      ),
+      child: Scaffold(
+        appBar: AppBar(
+          title: const Text('Editar perfil'),
+          backgroundColor: Colors.black87,
+        ),
+        body: Padding(
+          padding: const EdgeInsets.all(20),
+          child: ListView(
+            children: [
+              TextField(
+                controller: nameController,
+                decoration: const InputDecoration(labelText: 'Nombre'),
+              ),
+              const SizedBox(height: 10),
+              TextField(
+                controller: lastNameController,
+                decoration: const InputDecoration(labelText: 'Apellido'),
+              ),
+              const SizedBox(height: 10),
+              TextField(
+                enabled: false,
+                decoration: InputDecoration(
+                  labelText: 'Edad',
+                  hintText: edad,
+                ),
+              ),
+              const SizedBox(height: 10),
+              TextField(
+                controller: cedulaController,
+                decoration: const InputDecoration(labelText: 'Cédula'),
+              ),
+              const SizedBox(height: 10),
+              TextField(
+                controller: emailController,
+                decoration: const InputDecoration(labelText: 'Correo'),
+              ),
+              const SizedBox(height: 30),
+              ElevatedButton.icon(
+                onPressed: guardarCambios,
+                icon: const Icon(Icons.save),
+                label: const Text('Guardar cambios'),
+                style: ElevatedButton.styleFrom(
+                    backgroundColor: Colors.blueAccent),
+              ),
+            ],
+          ),
         ),
       ),
     );
