@@ -119,6 +119,321 @@
         "director": "Edgar Wright"
       },
       "genero": ["Acción", "Ciencia Ficción", "Thriller"]
-    } 
+    },
+    {
+      "titulo": "Inception",
+      "anio": 2010,
+      "descripcion": "Un ladrón que roba secretos a través del uso de la tecnología compartida de sueños recibe la tarea inversa de implantar una idea en la mente de un CEO.",
+      "enlaces": {
+        "url": "https://www.imdb.com/title/tt1375666/",
+        "trailer": "https://youtu.be/YoHD9XEInc0",
+        "image": "https://artworks.thetvdb.com/banners/movies/113/posters/2195447.jpg"
+      },
+      "detalles": {
+        "duracion": "148 min",
+        "director": "Christopher Nolan"
+      },
+      "genero": ["Acción", "Ciencia Ficción", "Suspenso"]
+    },
+    {
+      "titulo": "El laberinto del fauno",
+      "anio": 2006,
+      "descripcion": "En el contexto de la posguerra española, una niña descubre un mundo fantástico mientras su padrastro fascista aterroriza a su madre.",
+      "enlaces": {
+        "url": "https://www.imdb.com/title/tt0457430/",
+        "trailer": "https://youtu.be/SkTt9k4Y-a8",
+        "image": "https://image.tmdb.org/t/p/w500/6AdREz6IPR6tGtOKBjhYUga8Qfj.jpg"
+      },
+      "detalles": {
+        "duracion": "118 min",
+        "director": "Guillermo del Toro"
+      },
+      "genero": ["Drama", "Fantasía", "Guerra"]
+    },
+    {
+      "titulo": "Forrest Gump",
+      "anio": 1994,
+      "descripcion": "La historia conmovedora de un hombre simple que, sin proponérselo, se convierte en testigo de momentos clave de la historia de EEUU.",
+      "enlaces": {
+        "url": "https://www.imdb.com/title/tt0109830/",
+        "trailer": "https://youtu.be/bLvqoHBptjg",
+        "image": "https://image.tmdb.org/t/p/w500/saHP97rTPS5eLmrLQEcANmKrsFl.jpg"
+      },
+      "detalles": {
+        "duracion": "142 min",
+        "director": "Robert Zemeckis"
+      },
+      "genero": ["Drama", "Romance"]
+    },
+    {
+      "titulo": "The Matrix",
+      "anio": 1999,
+      "descripcion": "Un hacker descubre que el mundo real es una simulación y se une a una rebelión contra las máquinas.",
+      "enlaces": {
+        "url": "https://www.imdb.com/title/tt0133093/",
+        "trailer": "https://youtu.be/vKQi3bBA1y8",
+        "image": "https://image.tmdb.org/t/p/w500/f89U3ADr1oiB1s9GkdPOEpXUk5H.jpg"
+      },
+      "detalles": {
+        "duracion": "136 min",
+        "director": "Hermanas Wachowski"
+      },
+      "genero": ["Acción", "Ciencia Ficción"]
+    },
+    {
+      "titulo": "La lista de Schindler",
+      "anio": 1993,
+      "descripcion": "Un empresario alemán salva la vida de más de mil refugiados polacos durante el Holocausto.",
+      "enlaces": {
+        "url": "https://www.imdb.com/title/tt0108052/",
+        "trailer": "https://youtu.be/gG22XNhtnoY",
+        "image": "https://image.tmdb.org/t/p/w500/c8Ass7acuOe4za6DhSattE359gr.jpg"
+      },
+      "detalles": {
+        "duracion": "195 min",
+        "director": "Steven Spielberg"
+      },
+      "genero": ["Biografía", "Drama", "Historia"]
+    },
+    {
+      "titulo": "Pulp Fiction",
+      "anio": 1994,
+      "descripcion": "Varias historias entrelazadas que siguen a criminales en Los Ángeles en un estilo narrativo poco convencional.",
+      "enlaces": {
+        "url": "https://www.imdb.com/title/tt0110912/",
+        "trailer": "https://youtu.be/s7EdQ4FqbhY",
+        "image": "https://image.tmdb.org/t/p/w500/dM2w364MScsjFf8pfMbaWUcWrR.jpg"
+      },
+      "detalles": {
+        "duracion": "154 min",
+        "director": "Quentin Tarantino"
+      },
+      "genero": ["Crimen", "Drama"]
+    },
+    {
+      "titulo": "El viaje de Chihiro",
+      "anio": 2001,
+      "descripcion": "Una niña entra en un mundo de espíritus y dioses, donde debe trabajar en un balneario para salvar a sus padres.",
+      "enlaces": {
+        "url": "https://www.imdb.com/title/tt0245429/",
+        "trailer": "https://youtu.be/ByXuk9QqQkk",
+        "image": "https://image.tmdb.org/t/p/w500/oRvMaJOmapypFUcQqpgHMZA6qL9.jpg"
+      },
+      "detalles": {
+        "duracion": "125 min",
+        "director": "Hayao Miyazaki"
+      },
+      "genero": ["Animación", "Aventura", "Fantasía"]
+    },
+    {
+      "titulo": "Gladiador",
+      "anio": 2000,
+      "descripcion": "Un general romano se convierte en gladiador para vengar el asesinato de su familia y emperador.",
+      "enlaces": {
+        "url": "https://www.imdb.com/title/tt0172495/",
+        "trailer": "https://youtu.be/owK1qxDselE",
+        "image": "https://image.tmdb.org/t/p/w500/tiUSb58vKjWjkOet5cL3XoiT8cV.jpg"
+      },
+      "detalles": {
+        "duracion": "155 min",
+        "director": "Ridley Scott"
+      },
+      "genero": ["Acción", "Aventura", "Drama"]
+    },
+    {
+      "titulo": "El señor de los anillos: El retorno del rey",
+      "anio": 2003,
+      "descripcion": "La épica batalla final por la Tierra Media y el destino del Anillo Único llega a su conclusión.",
+      "enlaces": {
+        "url": "https://www.imdb.com/title/tt0167260/",
+        "trailer": "https://youtu.be/r5X-hFf6Bwo",
+        "image": "https://image.tmdb.org/t/p/w500/rCzpDGLbOoPwLjy3OAm5NUPOTrC.jpg"
+      },
+      "detalles": {
+        "duracion": "201 min",
+        "director": "Peter Jackson"
+      },
+      "genero": ["Aventura", "Fantasía", "Acción"]
+    },
+    {
+      "titulo": "Titanic",
+      "anio": 1997,
+      "descripcion": "Un joven artista pobre y una mujer de alta sociedad se enamoran a bordo del infortunado RMS Titanic.",
+      "enlaces": {
+        "url": "https://www.imdb.com/title/tt0120338/",
+        "trailer": "https://youtu.be/kVrqfYjkTdQ",
+        "image": "https://image.tmdb.org/t/p/w500/9xjZS2rlVxm8SFx8kPC3aIGCOYQ.jpg"
+      },
+      "detalles": {
+        "duracion": "195 min",
+        "director": "James Cameron"
+      },
+      "genero": ["Drama", "Romance"]
+    },
+    {
+      "titulo": "Interstellar",
+      "anio": 2014,
+      "descripcion": "Un grupo de astronautas viaja a través de un agujero de gusano en busca de un nuevo hogar para la humanidad.",
+      "enlaces": {
+        "url": "https://www.imdb.com/title/tt0816692/",
+        "trailer": "https://youtu.be/zSWdZVtXT7E",
+        "image": "https://image.tmdb.org/t/p/w500/gEU2QniE6E77NI6lCU6MxlNBvIx.jpg"
+      },
+      "detalles": {
+        "duracion": "169 min",
+        "director": "Christopher Nolan"
+      },
+      "genero": ["Aventura", "Drama", "Ciencia Ficción"]
+    },
+    {
+      "titulo": "El club de la pelea",
+      "anio": 1999,
+      "descripcion": "Un hombre insomne y un vendedor de jabón forman un club clandestino que evoluciona en algo mucho más grande.",
+      "enlaces": {
+        "url": "https://www.imdb.com/title/tt0137523/",
+        "trailer": "https://youtu.be/SUXWAEX2jlg",
+        "image": "https://image.tmdb.org/t/p/w500/bptfVGEQuv6vDTIMVCHjJ9Dz8PX.jpg"
+      },
+      "detalles": {
+        "duracion": "139 min",
+        "director": "David Fincher"
+      },
+      "genero": ["Drama", "Suspenso"]
+    },
+    {
+      "titulo": "La La Land",
+      "anio": 2016,
+      "descripcion": "Un músico de jazz y una aspirante a actriz se enamoran mientras persiguen sus sueños en Los Ángeles.",
+      "enlaces": {
+        "url": "https://www.imdb.com/title/tt3783958/",
+        "trailer": "https://youtu.be/0pdqf4P9MB8",
+        "image": "https://image.tmdb.org/t/p/w500/ylXCdC106IKiarftHkcacasaAcb.jpg"
+      },
+      "detalles": {
+        "duracion": "128 min",
+        "director": "Damien Chazelle"
+      },
+      "genero": ["Comedia", "Drama", "Música"]
+    },
+    {
+      "titulo": "Mad Max: Fury Road",
+      "anio": 2015,
+      "descripcion": "En un mundo postapocalíptico, Max se une a Furiosa para huir de un tirano en una huida épica por el desierto.",
+      "enlaces": {
+        "url": "https://www.imdb.com/title/tt1392190/",
+        "trailer": "https://youtu.be/hEJnMQG9ev8",
+        "image": "https://image.tmdb.org/t/p/w500/8tZYtuWezp8JbcsvHYO0O46tFbo.jpg"
+      },
+      "detalles": {
+        "duracion": "120 min",
+        "director": "George Miller"
+      },
+      "genero": ["Acción", "Aventura", "Ciencia Ficción"]
+    },
+    {
+      "titulo": "Her",
+      "anio": 2013,
+      "descripcion": "En un futuro cercano, un escritor solitario se enamora de una inteligencia artificial avanzada.",
+      "enlaces": {
+        "url": "https://www.imdb.com/title/tt1798709/",
+        "trailer": "https://youtu.be/WzV6mXIOVl4",
+        "image": "https://image.tmdb.org/t/p/w500/ykU7Hg7PA1dUFlUL8nIGQpOvPVU.jpg"
+      },
+      "detalles": {
+        "duracion": "126 min",
+        "director": "Spike Jonze"
+      },
+      "genero": ["Drama", "Romance", "Ciencia Ficción"]
+    },
+    {
+      "titulo": "Whiplash",
+      "anio": 2014,
+      "descripcion": "Un joven baterista se enfrenta a un exigente profesor que lo lleva al límite de su resistencia mental y artística.",
+      "enlaces": {
+        "url": "https://www.imdb.com/title/tt2582802/",
+        "trailer": "https://youtu.be/7d_jQycdQGo",
+        "image": "https://image.tmdb.org/t/p/w500/oPpsYbBsHjx find.jpg"
+      },
+      "detalles": {
+        "duracion": "106 min",
+        "director": "Damien Chazelle"
+      },
+      "genero": ["Drama", "Música"]
+    },
+    {
+      "titulo": "Toy Story",
+      "anio": 1995,
+      "descripcion": "Un grupo de juguetes cobra vida cuando los humanos no están presentes, y un nuevo juguete desafía al líder del grupo.",
+      "enlaces": {
+        "url": "https://www.imdb.com/title/tt0114709/",
+        "trailer": "https://youtu.be/KYz2wyBy3kc",
+        "image": "https://image.tmdb.org/t/p/w500/uXDfjJbdP4ijW5hWSBrPrlKPX.jpg"
+      },
+      "detalles": {
+        "duracion": "81 min",
+        "director": "John Lasseter"
+      },
+      "genero": ["Animación", "Aventura", "Comedia"]
+    },
+    {
+      "titulo": "El renacido",
+      "anio": 2015,
+      "descripcion": "Basada en hechos reales, un trampero lucha por sobrevivir y vengarse tras ser dejado por muerto.",
+      "enlaces": {
+        "url": "https://www.imdb.com/title/tt1663202/",
+        "trailer": "https://youtu.be/wUV4WQ--UhE",
+        "image": "https://image.tmdb.org/t/p/w500/vlOzmYiCFLLXIjf5wA6uJl5fg6.jpg"
+      },
+      "detalles": {
+        "duracion": "156 min",
+        "director": "Alejandro González Iñárritu"
+      },
+      "genero": ["Aventura", "Drama", "Historia"]
+    },
+    {
+      "titulo": "Avatar: The Way of Water",
+      "anio": 2022,
+      "descripcion": "Secuela de Avatar, donde la familia Sully explora los océanos de Pandora y deben enfrentar nuevos peligros.",
+      "enlaces": {
+        "url": "https://www.imdb.com/title/tt1630029/",
+        "trailer": "https://youtu.be/3U1ULUq8D3U",
+        "image": "https://image.tmdb.org/t/p/w500/kVmq4m6rBy6GqkvjdLPXQyufXIt.jpg"
+      },
+      "detalles": {
+        "duracion": "201 min",
+        "director": "James Cameron"
+      },
+      "genero": ["Acción", "Aventura", "Ciencia Ficción"]
+    },
+    {
+      "titulo": "Joker",
+      "anio": 2019,
+      "descripcion": "Una mirada oscura al origen del villano más icónico de Gotham, un hombre solitario que se convierte en el Joker.",
+      "enlaces": {
+        "url": "https://www.imdb.com/title/tt7286456/",
+        "trailer": "https://youtu.be/zAGVQLHvwOY",
+        "image": "https://image.tmdb.org/t/p/w500/udDclJoHjfjb8Ekgsd4FDteOkCU.jpg"
+      },
+      "detalles": {
+        "duracion": "122 min",
+        "director": "Todd Phillips"
+      },
+      "genero": ["Crimen", "Drama", "Thriller"]
+    },
+    {
+      "titulo": "Parasite",
+      "anio": 2019,
+      "descripcion": "Una familia pobre se infiltra en los más privilegiados, desencadenando una serie de eventos inesperados.",
+      "enlaces": {
+        "url": "https://www.imdb.com/title/tt6751668/",
+        "trailer": "https://youtu.be/5xH0HfJHsaY",
+        "image": "https://image.tmdb.org/t/p/w500/7IiTTgloJzvGI1TAYymCfbfl3vT.jpg"
+      },
+      "detalles": {
+        "duracion": "132 min",
+        "director": "Bong Joon Ho"
+      },
+      "genero": ["Comedia", "Drama", "Suspense"]
+    }
   ]
 }
