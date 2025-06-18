@@ -7,12 +7,24 @@ environment:
   sdk: '>=3.0.0 <4.0.0'
 
 dependencies:
-  url_launcher: ^6.1.7
   flutter:
     sdk: flutter
+
+
   firebase_core: ^2.25.3
   firebase_auth: ^4.17.3
   firebase_database: ^10.4.0
+
+
+  url_launcher: ^6.1.7
+  webview_flutter: ^4.7.0
+
+
+  youtube_player_flutter: ^8.1.2
+  video_player: ^2.8.6
+  chewie: ^1.7.4
+
+
 
 dev_dependencies:
   flutter_test:
