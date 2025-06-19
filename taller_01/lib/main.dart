@@ -1,8 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:firebase_core/firebase_core.dart';
-import 'package:taller_01/screens/homeScreen.dart';
+
+import 'package:taller_01/screens/splash_screen.dart';   // ← NUEVO
 import 'package:taller_01/screens/loginScreen.dart';
 import 'package:taller_01/screens/registerScreen.dart';
+import 'package:taller_01/screens/homeScreen.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -16,15 +18,27 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      theme: ThemeData.dark(),
-      title: 'App Registro',
+      title: 'App Registro',                // (sin cambios)
       debugShowCheckedModeBanner: false,
-      
-      initialRoute: '/',
+      // mismo tema oscuro pero con rojo como color base
+      theme: ThemeData.dark().copyWith(
+        colorScheme: ColorScheme.fromSeed(seedColor: Colors.redAccent),
+        scaffoldBackgroundColor: Colors.black,
+        snackBarTheme: const SnackBarThemeData(
+          backgroundColor: Colors.redAccent,
+        ),
+        elevatedButtonTheme: ElevatedButtonThemeData(
+          style: ElevatedButton.styleFrom(backgroundColor: Colors.redAccent),
+        ),
+      ),
+
+      // rutas (solo se añade Splash y se mueve Login)
+      initialRoute: '/',                    // ahora muestra Splash primero
       routes: {
-        '/': (context) => const LoginScreen(),
-        '/register': (context) => const RegisterScreen(),
-        '/home': (context) => const HomeScreen(),
+        '/':         (_) => const SplashScreen(), // ← NUEVO
+        '/login':    (_) => const LoginScreen(),
+        '/register': (_) => const RegisterScreen(),
+        '/home':     (_) => const HomeScreen(),
       },
     );
   }

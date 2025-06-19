@@ -1,0 +1,89 @@
+import 'package:flutter/material.dart';
+import 'package:webview_flutter/webview_flutter.dart';
+import 'package:youtube_player_iframe/youtube_player_iframe.dart';
+import 'package:video_player/video_player.dart';
+import 'package:chewie/chewie.dart';
+
+enum _Tipo { youtube, video, web }
+
+class VerPelicula extends StatefulWidget {
+  final String url;   // trailer, mp4, hls…
+  final String title;
+  const VerPelicula({super.key, required this.url, required this.title});
+
+  @override
+  State<VerPelicula> createState() => _VerPeliculaState();
+}
+
+class _VerPeliculaState extends State<VerPelicula> {
+  late final _Tipo tipo;
+
+  YoutubePlayerController? yt;
+  VideoPlayerController?   vp;
+  ChewieController?        chewie;
+
+  @override
+  void initState() {
+    super.initState();
+
+    final u = widget.url;
+
+    // ────────────── 1. Enlace YouTube ──────────────
+    if (u.contains('youtu')) {
+      tipo = _Tipo.youtube;
+
+      yt = YoutubePlayerController.fromVideoId(
+        videoId: YoutubePlayerController.convertUrlToId(u)!,
+        params: const YoutubePlayerParams(
+               // ← autoplay sin llamar a play()
+          showControls: true,
+          showFullscreenButton: true,
+        ),
+      );
+
+    // ────────────── 2. Archivo / HLS ──────────────
+    } else if (u.endsWith('.mp4') || u.contains('.m3u8')) {
+      tipo = _Tipo.video;
+      vp = VideoPlayerController.networkUrl(Uri.parse(u))
+        ..initialize().then((_) {
+          chewie = ChewieController(
+            videoPlayerController: vp!,
+            autoPlay: true,
+            looping: false,
+          );
+          setState(() {});               // reconstruye cuando esté listo
+        });
+
+    // ────────────── 3. Cualquier otro enlace ──────────────
+    } else {
+      tipo = _Tipo.web;
+    }
+  }
+
+  @override
+  void dispose() {
+    yt?.close();        // cierra el iframe
+    chewie?.dispose();
+    vp?.dispose();
+    super.dispose();
+  }
+
+  @override
+  Widget build(BuildContext context) => Scaffold(
+        appBar: AppBar(
+          title: Text(widget.title),
+          backgroundColor: Colors.redAccent,
+        ),
+        body: switch (tipo) {
+          _Tipo.youtube => YoutubePlayer(controller: yt!),
+          _Tipo.video   => chewie == null
+              ? const Center(child: CircularProgressIndicator())
+              : Chewie(controller: chewie!),
+          _Tipo.web     => WebViewWidget(
+              controller: WebViewController()
+                ..setJavaScriptMode(JavaScriptMode.unrestricted)
+                ..loadRequest(Uri.parse(widget.url)),
+            ),
+        },
+      );
+}

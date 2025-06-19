@@ -1,14 +1,16 @@
 name: taller_01
 description: "A new Flutter project."
-publish_to: 'none'
+publish_to: "none"
 version: 0.1.0
 
 environment:
-  sdk: '>=3.0.0 <4.0.0'
+  sdk: ">=3.0.0 <4.0.0"
 
 dependencies:
   flutter:
     sdk: flutter
+
+  # ─────────── Firebase ───────────
   firebase_core: ^2.25.3
   firebase_auth: ^4.17.3
   firebase_database: ^10.4.0
@@ -18,6 +20,15 @@ dependencies:
   supabase_flutter: ^2.9.1
  
 
+  # ───────── Navegación / Web ─────────
+  url_launcher: ^6.1.7
+  webview_flutter: ^4.7.0          # para URLs normales
+
+  # ─────────── Reproductores ───────────
+  youtube_player_iframe: ^4.0.4    # SIN in-app-webview
+  video_player: ^2.8.6
+  chewie: ^1.7.4
+
 dev_dependencies:
   flutter_test:
     sdk: flutter
@@ -25,6 +36,7 @@ dev_dependencies:
 
 flutter:
   uses-material-design: true
+
   assets:
     - assets/images/
     - assets/Data/
