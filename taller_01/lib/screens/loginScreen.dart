@@ -13,7 +13,7 @@ class _LoginScreenState extends State<LoginScreen> {
   final passwordController = TextEditingController();
   final _focusEmail = FocusNode();
 
-  // controla el AnimatedSwitcher
+
   bool _showBrand = false;
 
   @override

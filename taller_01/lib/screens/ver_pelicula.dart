@@ -35,8 +35,7 @@ class _VerPeliculaState extends State<VerPelicula> {
       yt = YoutubePlayerController.fromVideoId(
         videoId: YoutubePlayerController.convertUrlToId(u)!,
         params: const YoutubePlayerParams(
-               // ← autoplay sin llamar a play()
-          showControls: true,
+                  showControls: true,
           showFullscreenButton: true,
         ),
       );
@@ -50,11 +49,13 @@ class _VerPeliculaState extends State<VerPelicula> {
             videoPlayerController: vp!,
             autoPlay: true,
             looping: false,
+            allowMuting: true,
+            allowPlaybackSpeedChanging: true,
           );
-          setState(() {});               // reconstruye cuando esté listo
+          setState(() {});            
         });
 
-    // ────────────── 3. Cualquier otro enlace ──────────────
+  
     } else {
       tipo = _Tipo.web;
     }
@@ -62,28 +63,59 @@ class _VerPeliculaState extends State<VerPelicula> {
 
   @override
   void dispose() {
-    yt?.close();        // cierra el iframe
+    yt?.close();      
     chewie?.dispose();
     vp?.dispose();
     super.dispose();
   }
 
+  Widget _player() {
+    switch (tipo) {
+      case _Tipo.youtube:
+        return YoutubePlayer(controller: yt!);
+
+      case _Tipo.video:
+        if (chewie == null) {
+          return const Center(child: CircularProgressIndicator());
+        }
+        return Chewie(controller: chewie!);
+
+      case _Tipo.web:
+        return WebViewWidget(
+          controller: WebViewController()
+            ..setJavaScriptMode(JavaScriptMode.unrestricted)
+            ..loadRequest(Uri.parse(widget.url)),
+        );
+    }
+  }
+
   @override
-  Widget build(BuildContext context) => Scaffold(
-        appBar: AppBar(
-          title: Text(widget.title),
-          backgroundColor: Colors.redAccent,
-        ),
-        body: switch (tipo) {
-          _Tipo.youtube => YoutubePlayer(controller: yt!),
-          _Tipo.video   => chewie == null
-              ? const Center(child: CircularProgressIndicator())
-              : Chewie(controller: chewie!),
-          _Tipo.web     => WebViewWidget(
-              controller: WebViewController()
-                ..setJavaScriptMode(JavaScriptMode.unrestricted)
-                ..loadRequest(Uri.parse(widget.url)),
-            ),
-        },
-      );
+  Widget build(BuildContext context) {
+    return OrientationBuilder(
+      builder: (context, orientation) {
+        final isLandscape = orientation == Orientation.landscape;
+
+        // Contenedor del reproductor
+        final content = isLandscape
+            ? SizedBox.expand(child: _player())       
+            : Center(                                     
+                child: AspectRatio(
+                  aspectRatio: 16 / 9,
+                  child: _player(),
+                ),
+              );
+
+        return Scaffold(
+          backgroundColor: Colors.black,
+          appBar: isLandscape
+              ? null                                   
+              : AppBar(
+                  title: Text(widget.title),
+                  backgroundColor: Colors.redAccent,
+                ),
+          body: content,
+        );
+      },
+    );
+  }
 }
