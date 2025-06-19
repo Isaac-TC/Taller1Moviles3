@@ -1,6 +1,12 @@
+
+
+import 'dart:io';
+
 import 'package:flutter/material.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:firebase_database/firebase_database.dart';
+import 'package:image_picker/image_picker.dart';
+import 'package:supabase_flutter/supabase_flutter.dart';
 
 class RegisterScreen extends StatefulWidget {
   const RegisterScreen({super.key});
@@ -17,15 +23,32 @@ class _RegisterScreenState extends State<RegisterScreen> {
   final emailController = TextEditingController();
   final passwordController = TextEditingController();
 
-  @override
-  void dispose() {
-    nameController.dispose();
-    lastNameController.dispose();
-    ageController.dispose();
-    idController.dispose();
-    emailController.dispose();
-    passwordController.dispose();
-    super.dispose();
+  XFile? imagen;
+
+  void cambiarImagen(XFile nuevaImagen) {
+    setState(() {
+      imagen = nuevaImagen;
+    });
+  }
+
+  Future<void> abrirGaleria() async {
+    final seleccion = await ImagePicker().pickImage(source: ImageSource.gallery);
+    if (seleccion != null) cambiarImagen(seleccion);
+  }
+
+  Future<void> abrirCamara() async {
+    final seleccion = await ImagePicker().pickImage(source: ImageSource.camera);
+    if (seleccion != null) cambiarImagen(seleccion);
+  }
+
+  Future<String?> subirImagenASupabase(String uid) async {
+    if (imagen == null) return null;
+
+    final storage = Supabase.instance.client.storage.from('avatars');
+    final path = 'users/$uid.jpg';
+    await storage.upload(path, File(imagen!.path), fileOptions: const FileOptions(upsert: true));
+    final url = storage.getPublicUrl(path);
+    return url;
   }
 
   void handleRegister(BuildContext context) async {
@@ -51,6 +74,8 @@ class _RegisterScreenState extends State<RegisterScreen> {
 
       final uid = credential.user!.uid;
 
+      final imagenUrl = await subirImagenASupabase(uid);
+
       final ref = FirebaseDatabase.instance.ref();
       await ref.child('personas').child(uid).set({
         'name': name,
@@ -58,6 +83,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
         'age': int.tryParse(age),
         'cedula': id,
         'email': email,
+        'avatar': imagenUrl ?? '',
       });
 
       showDialog(
@@ -101,6 +127,23 @@ class _RegisterScreenState extends State<RegisterScreen> {
         child: SingleChildScrollView(
           child: Column(
             children: [
+              imagen != null
+                  ? Image.file(File(imagen!.path), width: 180, height: 180)
+                  : const Icon(Icons.account_circle, size: 100, color: Colors.grey),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  IconButton(
+                    icon: const Icon(Icons.photo_library),
+                    onPressed: abrirGaleria,
+                  ),
+                  IconButton(
+                    icon: const Icon(Icons.camera_alt),
+                    onPressed: abrirCamara,
+                  ),
+                ],
+              ),
+              const SizedBox(height: 16),
               TextField(controller: nameController, decoration: const InputDecoration(labelText: 'Nombres')),
               const SizedBox(height: 8),
               TextField(controller: lastNameController, decoration: const InputDecoration(labelText: 'Apellidos')),
