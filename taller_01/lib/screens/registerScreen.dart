@@ -1,5 +1,3 @@
-
-
 import 'dart:io';
 
 import 'package:flutter/material.dart';
@@ -41,15 +39,29 @@ class _RegisterScreenState extends State<RegisterScreen> {
     if (seleccion != null) cambiarImagen(seleccion);
   }
 
-  Future<String?> subirImagenASupabase(String uid) async {
-    if (imagen == null) return null;
+ Future<String?> subirImagenASupabase(String uid) async {
+  if (imagen == null) return null;
 
-    final storage = Supabase.instance.client.storage.from('avatars');
+  try {
+    final supabase = Supabase.instance.client;
+    final storage = supabase.storage.from('personajes');
     final path = 'users/$uid.jpg';
-    await storage.upload(path, File(imagen!.path), fileOptions: const FileOptions(upsert: true));
+
+    await storage.upload(
+      path,
+      File(imagen!.path),
+      fileOptions: const FileOptions(upsert: true),
+    );
+
     final url = storage.getPublicUrl(path);
+    print('✅ Imagen subida. URL pública: $url');
     return url;
+  } catch (e) {
+    debugPrint('❌ Error subiendo imagen a Supabase: $e');
+    return null;
   }
+}
+
 
   void handleRegister(BuildContext context) async {
     final name = nameController.text.trim();
@@ -66,6 +78,13 @@ class _RegisterScreenState extends State<RegisterScreen> {
       return;
     }
 
+    if (imagen == null) {
+      ScaffoldMessenger.of(context).showSnackBar(
+        const SnackBar(content: Text('Selecciona una imagen de perfil')),
+      );
+      return;
+    }
+
     try {
       final credential = await FirebaseAuth.instance.createUserWithEmailAndPassword(
         email: email,
@@ -73,7 +92,6 @@ class _RegisterScreenState extends State<RegisterScreen> {
       );
 
       final uid = credential.user!.uid;
-
       final imagenUrl = await subirImagenASupabase(uid);
 
       final ref = FirebaseDatabase.instance.ref();
@@ -85,6 +103,10 @@ class _RegisterScreenState extends State<RegisterScreen> {
         'email': email,
         'avatar': imagenUrl ?? '',
       });
+      ScaffoldMessenger.of(context).showSnackBar(
+  const SnackBar(content: Text('✅ Registro completado. Imagen subida correctamente')),
+);
+
 
       showDialog(
         context: context,
@@ -128,7 +150,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
           child: Column(
             children: [
               imagen != null
-                  ? Image.file(File(imagen!.path), width: 180, height: 180)
+                  ? Image.file(File(imagen!.path), width: 180, height: 180, fit: BoxFit.cover)
                   : const Icon(Icons.account_circle, size: 100, color: Colors.grey),
               Row(
                 mainAxisAlignment: MainAxisAlignment.center,
@@ -171,3 +193,4 @@ class _RegisterScreenState extends State<RegisterScreen> {
     );
   }
 }
+

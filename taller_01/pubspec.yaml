@@ -17,6 +17,8 @@ dependencies:
 
   # ─────────── UI / Utilidades ───────────
   carousel_slider: ^4.2.1
+
+ 
   image_picker: ^1.1.2
 
   # ─────────── Supabase ───────────
