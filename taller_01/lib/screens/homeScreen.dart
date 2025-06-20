@@ -3,7 +3,7 @@ import 'package:firebase_auth/firebase_auth.dart';
 
 // ───── PANTALLAS ─────
 import 'package:taller_01/screens/PeliculaSceen.dart';
-import 'package:taller_01/screens/BuscarScreen.dart';  // ← aquí vive abrirBusquedaSimple
+import 'package:taller_01/screens/BuscarScreen.dart';  
 import 'package:taller_01/screens/FiltroScreen.dart';
 import 'package:taller_01/screens/perfilScreen.dart';
 
@@ -17,11 +17,11 @@ class HomeScreen extends StatefulWidget {
 class _HomeScreenState extends State<HomeScreen> {
   int indice = 0;
 
-  final List<Widget> paginas = [
-    const PeliculasMirar(),
-    const BuscarPelicula(),
-     GuardadosScreen(key: UniqueKey()),
-    const PerfilUser(),
+  final List<Widget> paginas = const [
+    PeliculasMirar(),
+    BuscarPelicula(),
+    GuardadosScreen(),
+    PerfilUser(),
   ];
 
   Future<void> _logout(BuildContext context) async {
@@ -133,34 +133,48 @@ class _HomeScreenState extends State<HomeScreen> {
         // ─────────── CUERPO ───────────
         body: IndexedStack(index: indice, children: paginas),
 
-      // ─────────── BOTTOM BAR ───────────
-      bottomNavigationBar: BottomNavigationBar(
-        currentIndex: indice,
-        onTap: (i) => setState(() => indice = i),
-        backgroundColor: Colors.grey[900],
-        selectedItemColor: Colors.redAccent,
-        unselectedItemColor: Colors.white54,
-        type: BottomNavigationBarType.fixed,
-        items: const [
-          BottomNavigationBarItem(
-            icon: Icon(Icons.local_movies_outlined),
-            label: 'Películas',
-          ),
-          BottomNavigationBarItem(
-            icon: Icon(Icons.search),
-            label: 'Buscar',
-          ),
-          BottomNavigationBarItem(
-            icon: Icon(Icons.bookmark_outline),
-            label: 'Guardado',
-          ),
-          BottomNavigationBarItem(
-            icon: Icon(Icons.person_outline),
-            label: 'Perfil',
-          ),
-        ],
-      ),
-      backgroundColor: Colors.black,
-    );
-  }
+        // ─────────── BOTTOM NAV ───────────
+        bottomNavigationBar: BottomNavigationBar(
+          currentIndex: indice,
+          onTap: (i) => setState(() => indice = i),
+          backgroundColor: Colors.grey[900],
+          selectedItemColor: Colors.redAccent,
+          unselectedItemColor: Colors.white54,
+          type: BottomNavigationBarType.fixed,
+          items: const [
+            BottomNavigationBarItem(
+              icon: Icon(Icons.local_movies_outlined),
+              label: 'Películas',
+            ),
+            BottomNavigationBarItem(
+              icon: Icon(Icons.search),
+              label: 'Buscar',
+            ),
+            BottomNavigationBarItem(
+              icon: Icon(Icons.bookmark_outline),
+              label: 'Guardado',
+            ),
+            BottomNavigationBarItem(
+              icon: Icon(Icons.person_outline),
+              label: 'Perfil',
+            ),
+          ],
+        ),
+        backgroundColor: Colors.black,
+      );
+}
 
+/// Helper para subtítulo con degradado rojo→blanco
+Widget _gradientText(String text, {Key? key}) {
+  const grad = LinearGradient(colors: [Colors.redAccent, Colors.white]);
+  return Text(
+    text,
+    key: key,
+    style: TextStyle(
+      fontSize: 16,
+      fontWeight: FontWeight.w600,
+      foreground: Paint()..shader = grad.createShader(const Rect.fromLTWH(0, 0, 200, 0)),
+      shadows: const [Shadow(blurRadius: 2, color: Colors.black26)],
+    ),
+  );
+}
