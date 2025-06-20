@@ -23,7 +23,7 @@ class _EditarPerfilScreenState extends State<EditarPerfilScreen> {
   late TextEditingController lastNameController;
   late TextEditingController cedulaController;
   late TextEditingController emailController;
-  late String edad;
+  late TextEditingController edadController;
   String? imagenUrl;
   XFile? nuevaImagen;
 
@@ -36,7 +36,7 @@ class _EditarPerfilScreenState extends State<EditarPerfilScreen> {
     lastNameController = TextEditingController(text: widget.datos['lastname']);
     cedulaController = TextEditingController(text: widget.datos['cedula']);
     emailController = TextEditingController(text: widget.datos['email']);
-    edad = widget.datos['age'].toString();
+    edadController = TextEditingController(text: widget.datos['age'].toString());
     imagenUrl = widget.datos['avatar'];
   }
 
@@ -90,7 +90,7 @@ class _EditarPerfilScreenState extends State<EditarPerfilScreen> {
       );
 
       final url = storage.getPublicUrl(path);
-      return '$url?${DateTime.now().millisecondsSinceEpoch}'; // Evita caché
+      return '$url?${DateTime.now().millisecondsSinceEpoch}';
     } catch (e) {
       debugPrint('❌ Error al subir nueva imagen: $e');
       return null;
@@ -98,8 +98,7 @@ class _EditarPerfilScreenState extends State<EditarPerfilScreen> {
   }
 
   void guardarCambios() async {
-    if ([nameController.text, lastNameController.text, cedulaController.text, emailController.text]
-        .any((e) => e.trim().isEmpty)) {
+    if ([nameController.text, lastNameController.text].any((e) => e.trim().isEmpty)) {
       ScaffoldMessenger.of(context).showSnackBar(
         const SnackBar(content: Text('❗ Todos los campos son obligatorios')),
       );
@@ -114,12 +113,10 @@ class _EditarPerfilScreenState extends State<EditarPerfilScreen> {
     await ref.update({
       'name': nameController.text.trim(),
       'lastname': lastNameController.text.trim(),
-      'cedula': cedulaController.text.trim(),
-      'email': emailController.text.trim(),
       'avatar': nuevaUrl ?? '',
     });
 
-    Navigator.pop(context, true); // Indicamos que hubo actualización
+    Navigator.pop(context, true);
     ScaffoldMessenger.of(context).showSnackBar(
       const SnackBar(content: Text('✅ Cambios guardados')),
     );
@@ -188,21 +185,24 @@ class _EditarPerfilScreenState extends State<EditarPerfilScreen> {
               ),
               const SizedBox(height: 10),
               TextField(
+                controller: edadController,
                 enabled: false,
-                decoration: InputDecoration(
-                  labelText: 'Edad',
-                  hintText: edad,
-                ),
+                decoration: const InputDecoration(labelText: 'Edad'),
+                style: const TextStyle(color: Colors.white),
               ),
               const SizedBox(height: 10),
               TextField(
                 controller: cedulaController,
+                enabled: false,
                 decoration: const InputDecoration(labelText: 'Cédula'),
+                style: const TextStyle(color: Colors.white),
               ),
               const SizedBox(height: 10),
               TextField(
                 controller: emailController,
+                enabled: false,
                 decoration: const InputDecoration(labelText: 'Correo'),
+                style: const TextStyle(color: Colors.white),
               ),
               const SizedBox(height: 30),
               ElevatedButton.icon(
