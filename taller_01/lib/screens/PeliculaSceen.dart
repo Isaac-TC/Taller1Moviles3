@@ -1,7 +1,6 @@
 import 'dart:convert';
 import 'package:flutter/material.dart';
 import 'package:url_launcher/url_launcher.dart'; // (sin usar por ahora)
-import 'package:taller_01/screens/ver_pelicula.dart'; // <-- añadido
 
 class PeliculasMirar extends StatelessWidget {
   const PeliculasMirar({super.key});
@@ -174,15 +173,7 @@ class _ContenidoState extends State<_Contenido> {
                       style: ElevatedButton.styleFrom(
                           backgroundColor: Colors.redAccent),
                       onPressed: () {
-                        Navigator.push(
-                          ctx,
-                          MaterialPageRoute(
-                            builder: (_) => VerPelicula(
-                              url: peli["enlaces"]["trailer"],
-                              title: peli["titulo"],
-                            ),
-                          ),
-                        );
+                        // TODO: reproducir película
                       },
                       child: const Text("Ver película"),
                     ),
@@ -292,15 +283,7 @@ class _ContenidoState extends State<_Contenido> {
                           style: ElevatedButton.styleFrom(
                               backgroundColor: Colors.redAccent),
                           onPressed: () {
-                            Navigator.push(
-                              ctx,
-                              MaterialPageRoute(
-                                builder: (_) => VerPelicula(
-                                  url: peli["enlaces"]["trailer"],
-                                  title: peli["titulo"],
-                                ),
-                              ),
-                            );
+                            // TODO: reproducir película
                           },
                           icon: const Icon(Icons.play_arrow),
                           label: const Text("Ver película"),
