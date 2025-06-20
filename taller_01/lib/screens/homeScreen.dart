@@ -3,7 +3,7 @@ import 'package:firebase_auth/firebase_auth.dart';
 
 // ───── PANTALLAS ─────
 import 'package:taller_01/screens/PeliculaSceen.dart';
-import 'package:taller_01/screens/BuscarScreen.dart';  // ← aquí vive abrirBusquedaSimple
+import 'package:taller_01/screens/BuscarScreen.dart';  
 import 'package:taller_01/screens/FiltroScreen.dart';
 import 'package:taller_01/screens/perfilScreen.dart';
 
@@ -20,7 +20,7 @@ class _HomeScreenState extends State<HomeScreen> {
   final List<Widget> paginas = const [
     PeliculasMirar(),
     BuscarPelicula(),
-    FiltroPelicula(),
+    GuardadosScreen(),
     PerfilUser(),
   ];
 

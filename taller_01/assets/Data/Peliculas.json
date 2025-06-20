@@ -1,10 +1,11 @@
 {
   "peliculas": [
     {
+      "id": "lilo-stitch-2025",
       "titulo": "Lilo & Stitch",
       "anio": 2025,
       "descripcion": "La divertidísima y conmovedora historia de una solitaria niña hawaiana y el extraterrestre fugitivo que ayuda a reconstruir su familia rota. Una reinterpretación en acción real del clásico animado de 2002.",
-     "restriccion_edad": "-18",
+      "restriccion_edad": "-18",
       "enlaces": {
         "url": "https://www.imdb.com/es-es/title/tt11655566/",
         "trailer": "https://youtu.be/VWqJifMMgZE?si=hNtivDY-HZwEgoaM",
@@ -14,13 +15,14 @@
         "duracion": "108 min",
         "director": "Dean Fleischer-Camp"
       },
-      "genero": ["aventura", "Familiar", "Ciencia Ficcion"]
+      "genero": ["Aventura", "Familiar", "Ciencia Ficcion"]
     },
     {
+      "id": "inside-out-2-2024",
       "titulo": "Inside Out 2",
       "anio": 2024,
       "descripcion": "Riley ahora es una adolescente enfrentando nuevas emociones como ansiedad, vergüenza y envidia. Secuela de la aclamada película animada de Pixar.",
-       "restriccion_edad": "-18",
+      "restriccion_edad": "-18",
       "enlaces": {
         "url": "https://www.imdb.com/title/tt11304740/",
         "trailer": "https://youtu.be/LEjhY15eCx0",
@@ -33,10 +35,11 @@
       "genero": ["Animación", "Aventura", "Comedia"]
     },
     {
+      "id": "furiosa-a-mad-max-saga-2024",
       "titulo": "Furiosa: A Mad Max Saga",
       "anio": 2024,
       "descripcion": "La historia de origen de Furiosa antes de 'Fury Road', revelando cómo fue secuestrada y luchó por su libertad.",
-       "restriccion_edad": "+18",
+      "restriccion_edad": "+18",
       "enlaces": {
         "url": "https://www.imdb.com/title/tt12037194/",
         "trailer": "https://youtu.be/XJMuhwVlca4",
@@ -49,10 +52,11 @@
       "genero": ["Acción", "Aventura", "Ciencia Ficción"]
     },
     {
+      "id": "deadpool-wolverine-2024",
       "titulo": "Deadpool & Wolverine",
       "anio": 2024,
       "descripcion": "Deadpool regresa con una misión multiversal que lo une con Wolverine. Humor irreverente, acción sin filtros y muchos cameos explosivos.",
-       "restriccion_edad": "+18",
+      "restriccion_edad": "+18",
       "enlaces": {
         "url": "https://www.imdb.com/title/tt6263850/",
         "trailer": "https://youtu.be/tL4McUzXfFI",
@@ -65,10 +69,11 @@
       "genero": ["Acción", "Comedia", "Superhéroes"]
     },
     {
+      "id": "the-garfield-movie-2024",
       "titulo": "The Garfield Movie",
       "anio": 2024,
       "descripcion": "El famoso gato amante de la lasaña regresa en una nueva aventura animada llena de humor, cuando descubre a su padre perdido.",
-       "restriccion_edad": "-18",
+      "restriccion_edad": "-18",
       "enlaces": {
         "url": "https://www.imdb.com/title/tt5779284/",
         "trailer": "https://youtu.be/BlfL7qPm9Oc",
@@ -81,10 +86,11 @@
       "genero": ["Animación", "Comedia", "Familiar"]
     },
     {
+      "id": "mission-impossible-the-final-reckoning-2025",
       "titulo": "Mission: Impossible – The Final Reckoning",
       "anio": 2025,
       "descripcion": "Tom Cruise vuelve como Ethan Hunt en la última misión imposible, una espectacular despedida cargada de acción épica.",
-       "restriccion_edad": "+18",
+      "restriccion_edad": "+18",
       "enlaces": {
         "url": "https://www.imdb.com/es-es/title/tt9603208/",
         "trailer": "https://www.youtube.com/watch?v=cPaEof1KJDg",
@@ -97,9 +103,10 @@
       "genero": ["Acción", "Aventura", "Thriller"]
     },
     {
+      "id": "28-years-later-2025",
       "titulo": "28 Years Later",
       "anio": 2025,
-      "descripcion": "Tercera entrega de la saga postapocalíptica dirigida por Danny Boyle, con Jodie Comer, Aaron Taylor‑Johnson y Ralph Fiennes.",
+      "descripcion": "Tercera entrega de la saga postapocalíptica dirigida por Danny Boyle, con Jodie Comer, Aaron Taylor-Johnson y Ralph Fiennes.",
       "restriccion_edad": "+18",
       "enlaces": {
         "url": "https://en.wikipedia.org/wiki/28_Years_Later",
@@ -113,6 +120,7 @@
       "genero": ["Terror", "Ciencia Ficción", "Suspense"]
     },
     {
+      "id": "the-running-man-2025",
       "titulo": "The Running Man",
       "anio": 2025,
       "descripcion": "Adaptación fiel de la novela de Stephen King, dirigida por Edgar Wright, donde Glen Powell es cazado vivo en un peligroso show.",
@@ -129,6 +137,7 @@
       "genero": ["Acción", "Ciencia Ficción", "Thriller"]
     },
     {
+      "id": "inception-2010",
       "titulo": "Inception",
       "anio": 2010,
       "descripcion": "Un ladrón que roba secretos a través del uso de la tecnología compartida de sueños recibe la tarea inversa de implantar una idea en la mente de un CEO.",
@@ -145,6 +154,7 @@
       "genero": ["Acción", "Ciencia Ficción", "Suspenso"]
     },
     {
+      "id": "el-laberinto-del-fauno-2006",
       "titulo": "El laberinto del fauno",
       "anio": 2006,
       "descripcion": "En el contexto de la posguerra española, una niña descubre un mundo fantástico mientras su padrastro fascista aterroriza a su madre.",
@@ -161,6 +171,7 @@
       "genero": ["Drama", "Fantasía", "Guerra"]
     },
     {
+      "id": "forrest-gump-1994",
       "titulo": "Forrest Gump",
       "anio": 1994,
       "descripcion": "La historia conmovedora de un hombre simple que, sin proponérselo, se convierte en testigo de momentos clave de la historia de EEUU.",
@@ -177,10 +188,11 @@
       "genero": ["Drama", "Romance"]
     },
     {
+      "id": "the-matrix-1999",
       "titulo": "The Matrix",
       "anio": 1999,
       "descripcion": "Un hacker descubre que el mundo real es una simulación y se une a una rebelión contra las máquinas.",
-       "restriccion_edad": "+18",
+      "restriccion_edad": "+18",
       "enlaces": {
         "url": "https://www.imdb.com/title/tt0133093/",
         "trailer": "https://youtu.be/vKQi3bBA1y8",
@@ -193,10 +205,11 @@
       "genero": ["Acción", "Ciencia Ficción"]
     },
     {
+      "id": "la-lista-de-schindler-1993",
       "titulo": "La lista de Schindler",
       "anio": 1993,
       "descripcion": "Un empresario alemán salva la vida de más de mil refugiados polacos durante el Holocausto.",
-       "restriccion_edad": "+18",
+      "restriccion_edad": "+18",
       "enlaces": {
         "url": "https://www.imdb.com/title/tt0108052/",
         "trailer": "https://youtu.be/gG22XNhtnoY",
@@ -209,6 +222,7 @@
       "genero": ["Biografía", "Drama", "Historia"]
     },
     {
+      "id": "pulp-fiction-1994",
       "titulo": "Pulp Fiction",
       "anio": 1994,
       "descripcion": "Varias historias entrelazadas que siguen a criminales en Los Ángeles en un estilo narrativo poco convencional.",
@@ -225,6 +239,7 @@
       "genero": ["Crimen", "Drama"]
     },
     {
+      "id": "el-viaje-de-chihiro-2001",
       "titulo": "El viaje de Chihiro",
       "anio": 2001,
       "descripcion": "Una niña entra en un mundo de espíritus y dioses, donde debe trabajar en un balneario para salvar a sus padres.",
@@ -241,10 +256,11 @@
       "genero": ["Animación", "Aventura", "Fantasía"]
     },
     {
+      "id": "gladiador-2000",
       "titulo": "Gladiador",
       "anio": 2000,
       "descripcion": "Un general romano se convierte en gladiador para vengar el asesinato de su familia y emperador.",
-       "restriccion_edad": "+18",
+      "restriccion_edad": "+18",
       "enlaces": {
         "url": "https://www.imdb.com/title/tt0172495/",
         "trailer": "https://youtu.be/owK1qxDselE",
@@ -257,10 +273,11 @@
       "genero": ["Acción", "Aventura", "Drama"]
     },
     {
+      "id": "el-senor-de-los-anillos-el-retorno-del-rey-2003",
       "titulo": "El señor de los anillos: El retorno del rey",
       "anio": 2003,
       "descripcion": "La épica batalla final por la Tierra Media y el destino del Anillo Único llega a su conclusión.",
-       "restriccion_edad": "+18",
+      "restriccion_edad": "+18",
       "enlaces": {
         "url": "https://www.imdb.com/title/tt0167260/",
         "trailer": "https://youtu.be/r5X-hFf6Bwo",
@@ -273,10 +290,11 @@
       "genero": ["Aventura", "Fantasía", "Acción"]
     },
     {
+      "id": "titanic-1997",
       "titulo": "Titanic",
       "anio": 1997,
       "descripcion": "Un joven artista pobre y una mujer de alta sociedad se enamoran a bordo del infortunado RMS Titanic.",
-       "restriccion_edad": "+18",
+      "restriccion_edad": "+18",
       "enlaces": {
         "url": "https://www.imdb.com/title/tt0120338/",
         "trailer": "https://youtu.be/kVrqfYjkTdQ",
@@ -289,10 +307,11 @@
       "genero": ["Drama", "Romance"]
     },
     {
+      "id": "interstellar-2014",
       "titulo": "Interstellar",
       "anio": 2014,
       "descripcion": "Un grupo de astronautas viaja a través de un agujero de gusano en busca de un nuevo hogar para la humanidad.",
-       "restriccion_edad": "+18",
+      "restriccion_edad": "+18",
       "enlaces": {
         "url": "https://www.imdb.com/title/tt0816692/",
         "trailer": "https://youtu.be/zSWdZVtXT7E",
@@ -305,10 +324,11 @@
       "genero": ["Aventura", "Drama", "Ciencia Ficción"]
     },
     {
+      "id": "el-club-de-la-pelea-1999",
       "titulo": "El club de la pelea",
       "anio": 1999,
       "descripcion": "Un hombre insomne y un vendedor de jabón forman un club clandestino que evoluciona en algo mucho más grande.",
-       "restriccion_edad": "+18",
+      "restriccion_edad": "+18",
       "enlaces": {
         "url": "https://www.imdb.com/title/tt0137523/",
         "trailer": "https://youtu.be/SUXWAEX2jlg",
@@ -321,10 +341,11 @@
       "genero": ["Drama", "Suspenso"]
     },
     {
+      "id": "la-la-land-2016",
       "titulo": "La La Land",
       "anio": 2016,
       "descripcion": "Un músico de jazz y una aspirante a actriz se enamoran mientras persiguen sus sueños en Los Ángeles.",
-       "restriccion_edad": "-18",
+      "restriccion_edad": "-18",
       "enlaces": {
         "url": "https://www.imdb.com/title/tt3783958/",
         "trailer": "https://youtu.be/0pdqf4P9MB8",
@@ -337,10 +358,11 @@
       "genero": ["Comedia", "Drama", "Música"]
     },
     {
+      "id": "mad-max-fury-road-2015",
       "titulo": "Mad Max: Fury Road",
       "anio": 2015,
       "descripcion": "En un mundo postapocalíptico, Max se une a Furiosa para huir de un tirano en una huida épica por el desierto.",
-       "restriccion_edad": "+18",
+      "restriccion_edad": "+18",
       "enlaces": {
         "url": "https://www.imdb.com/title/tt1392190/",
         "trailer": "https://youtu.be/hEJnMQG9ev8",
@@ -353,10 +375,11 @@
       "genero": ["Acción", "Aventura", "Ciencia Ficción"]
     },
     {
+      "id": "her-2013",
       "titulo": "Her",
       "anio": 2013,
       "descripcion": "En un futuro cercano, un escritor solitario se enamora de una inteligencia artificial avanzada.",
-       "restriccion_edad": "+18",
+      "restriccion_edad": "+18",
       "enlaces": {
         "url": "https://www.imdb.com/title/tt1798709/",
         "trailer": "https://youtu.be/WzV6mXIOVl4",
@@ -369,10 +392,11 @@
       "genero": ["Drama", "Romance", "Ciencia Ficción"]
     },
     {
+      "id": "whiplash-2014",
       "titulo": "Whiplash",
       "anio": 2014,
       "descripcion": "Un joven baterista se enfrenta a un exigente profesor que lo lleva al límite de su resistencia mental y artística.",
-       "restriccion_edad": "+18",
+      "restriccion_edad": "+18",
       "enlaces": {
         "url": "https://www.imdb.com/title/tt2582802/",
         "trailer": "https://youtu.be/7d_jQycdQGo",
@@ -385,10 +409,11 @@
       "genero": ["Drama", "Música"]
     },
     {
+      "id": "toy-story-1995",
       "titulo": "Toy Story",
       "anio": 1995,
       "descripcion": "Un grupo de juguetes cobra vida cuando los humanos no están presentes, y un nuevo juguete desafía al líder del grupo.",
-       "restriccion_edad": "-18",
+      "restriccion_edad": "-18",
       "enlaces": {
         "url": "https://www.imdb.com/title/tt0114709/",
         "trailer": "https://youtu.be/KYz2wyBy3kc",
@@ -401,10 +426,11 @@
       "genero": ["Animación", "Aventura", "Comedia"]
     },
     {
+      "id": "el-renacido-2015",
       "titulo": "El renacido",
       "anio": 2015,
       "descripcion": "Basada en hechos reales, un trampero lucha por sobrevivir y vengarse tras ser dejado por muerto.",
-       "restriccion_edad": "+18",
+      "restriccion_edad": "+18",
       "enlaces": {
         "url": "https://www.imdb.com/title/tt1663202/",
         "trailer": "https://youtu.be/wUV4WQ--UhE",
@@ -417,10 +443,11 @@
       "genero": ["Aventura", "Drama", "Historia"]
     },
     {
+      "id": "avatar-the-way-of-water-2022",
       "titulo": "Avatar: The Way of Water",
       "anio": 2022,
       "descripcion": "Secuela de Avatar, donde la familia Sully explora los océanos de Pandora y deben enfrentar nuevos peligros.",
-       "restriccion_edad": "+18",
+      "restriccion_edad": "+18",
       "enlaces": {
         "url": "https://www.imdb.com/title/tt1630029/",
         "trailer": "https://youtu.be/3U1ULUq8D3U",
@@ -433,10 +460,11 @@
       "genero": ["Acción", "Aventura", "Ciencia Ficción"]
     },
     {
+      "id": "joker-2019",
       "titulo": "Joker",
       "anio": 2019,
       "descripcion": "Una mirada oscura al origen del villano más icónico de Gotham, un hombre solitario que se convierte en el Joker.",
-       "restriccion_edad": "+18",
+      "restriccion_edad": "+18",
       "enlaces": {
         "url": "https://www.imdb.com/title/tt7286456/",
         "trailer": "https://youtu.be/zAGVQLHvwOY",
@@ -449,10 +477,11 @@
       "genero": ["Crimen", "Drama", "Thriller"]
     },
     {
+      "id": "parasite-2019",
       "titulo": "Parasite",
       "anio": 2019,
       "descripcion": "Una familia pobre se infiltra en los más privilegiados, desencadenando una serie de eventos inesperados.",
-       "restriccion_edad": "+18",
+      "restriccion_edad": "+18",
       "enlaces": {
         "url": "https://www.imdb.com/title/tt6751668/",
         "trailer": "https://youtu.be/5xH0HfJHsaY",
