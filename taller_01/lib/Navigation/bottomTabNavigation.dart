@@ -21,7 +21,7 @@ class _CuerpoState extends State<Cuerpo> {
   final List<Widget> paginas = [
     PeliculasMirar(),     
     BuscarPelicula(),     
-    FiltroPelicula(),    
+    GuardadosScreen(),    
     PerfilUser()         
   ];
   @override

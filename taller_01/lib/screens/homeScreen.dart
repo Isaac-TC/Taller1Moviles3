@@ -17,11 +17,11 @@ class HomeScreen extends StatefulWidget {
 class _HomeScreenState extends State<HomeScreen> {
   int indice = 0;
 
-  final List<Widget> paginas = const [
-    PeliculasMirar(),
-    BuscarPelicula(),
-    FiltroPelicula(),
-    PerfilUser(),
+  final List<Widget> paginas = [
+    const PeliculasMirar(),
+    const BuscarPelicula(),
+     GuardadosScreen(key: UniqueKey()),
+    const PerfilUser(),
   ];
 
   Future<void> _logout(BuildContext context) async {
@@ -90,32 +90,41 @@ class _HomeScreenState extends State<HomeScreen> {
       body: IndexedStack(index: indice, children: paginas),
 
       // ─────────── BOTTOM BAR ───────────
-      bottomNavigationBar: BottomNavigationBar(
-        currentIndex: indice,
-        onTap: (i) => setState(() => indice = i),
-        backgroundColor: Colors.grey[900],
-        selectedItemColor: Colors.redAccent,
-        unselectedItemColor: Colors.white54,
-        type: BottomNavigationBarType.fixed,
-        items: const [
-          BottomNavigationBarItem(
-            icon: Icon(Icons.local_movies_outlined),
-            label: 'Películas',
-          ),
-          BottomNavigationBarItem(
-            icon: Icon(Icons.search),
-            label: 'Buscar',
-          ),
-          BottomNavigationBarItem(
-            icon: Icon(Icons.bookmark_outline),
-            label: 'Guardado',
-          ),
-          BottomNavigationBarItem(
-            icon: Icon(Icons.person_outline),
-            label: 'Perfil',
-          ),
-        ],
-      ),
+    bottomNavigationBar: BottomNavigationBar(
+  currentIndex: indice,
+  onTap: (i) {
+    setState(() {
+      if (i == 2) {
+        
+        paginas[2] = GuardadosScreen(key: UniqueKey());
+      }
+      indice = i;
+    });
+  },
+  backgroundColor: Colors.grey[900],
+  selectedItemColor: Colors.redAccent,
+  unselectedItemColor: Colors.white54,
+  type: BottomNavigationBarType.fixed,
+  items: const [
+    BottomNavigationBarItem(
+      icon: Icon(Icons.local_movies_outlined),
+      label: 'Películas',
+    ),
+    BottomNavigationBarItem(
+      icon: Icon(Icons.search),
+      label: 'Buscar',
+    ),
+    BottomNavigationBarItem(
+      icon: Icon(Icons.bookmark_outline),
+      label: 'Guardado',
+    ),
+    BottomNavigationBarItem(
+      icon: Icon(Icons.person_outline),
+      label: 'Perfil',
+    ),
+  ],
+),
+
       backgroundColor: Colors.black,
     );
   }

@@ -1,7 +1,7 @@
 import 'dart:convert';
 import 'package:flutter/material.dart';
-import 'package:url_launcher/url_launcher.dart'; // (sin usar por ahora)
-import 'package:taller_01/screens/ver_pelicula.dart'; // <-- añadido
+import 'package:taller_01/screens/FiltroScreen.dart';
+import 'package:taller_01/screens/ver_pelicula.dart';
 
 class PeliculasMirar extends StatelessWidget {
   const PeliculasMirar({super.key});
@@ -21,7 +21,6 @@ class PeliculasMirar extends StatelessWidget {
       );
 }
 
-// ───────────────────── CONTENIDO ─────────────────────
 class _Contenido extends StatefulWidget {
   const _Contenido();
 
@@ -46,28 +45,33 @@ class _ContenidoState extends State<_Contenido> {
           if (!snap.hasData) {
             return const Center(child: CircularProgressIndicator());
           }
-          final data = snap.data!;
 
-          // duplicamos la lista para mostrar 5 filas
-          final listas = List.generate(5, (_) => data);
+          final pelis = snap.data!;
+
+          final Map<String, List<Map>> porGenero = {};
+          for (final p in pelis) {
+            for (final g in (p['genero'] as List)) {
+              porGenero.putIfAbsent(g, () => []).add(p);
+            }
+          }
+          final generos = porGenero.keys.toList()..sort();
 
           return ListView(
             children: [
-              // ───────── CARRUSEL ─────────
               SizedBox(
                 height: 330,
                 child: PageView.builder(
                   controller: _pageCtrl,
                   onPageChanged: (i) => setState(() => _paginaActual = i),
-                  itemCount: data.length,
-                  itemBuilder: (_, i) => _cardCarrusel(context, data[i]),
+                  itemCount: pelis.length,
+                  itemBuilder: (_, i) => _cardCarrusel(context, pelis[i]),
                 ),
               ),
               const SizedBox(height: 6),
               Row(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: List.generate(
-                  data.length,
+                  pelis.length,
                   (i) => AnimatedContainer(
                     duration: const Duration(milliseconds: 300),
                     margin: const EdgeInsets.symmetric(horizontal: 3),
@@ -83,27 +87,26 @@ class _ContenidoState extends State<_Contenido> {
                 ),
               ),
               const SizedBox(height: 24),
-
-              // ───────── LISTAS HORIZONTALES (5) ─────────
-              ...List.generate(listas.length, (fila) {
+              ...generos.map((g) {
+                final lista = porGenero[g]!;
                 return Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     Text(
-                      "Recomendadas ${fila + 1}",
+                      g,
                       style: const TextStyle(
-                          fontSize: 20,
-                          fontWeight: FontWeight.w600,
-                          color: Colors.white),
+                        fontSize: 20,
+                        fontWeight: FontWeight.w600,
+                        color: Colors.white,
+                      ),
                     ),
                     const SizedBox(height: 12),
                     SizedBox(
                       height: 210,
                       child: ListView.builder(
                         scrollDirection: Axis.horizontal,
-                        itemCount: listas[fila].length,
-                        itemBuilder: (_, i) =>
-                            _miniCard(context, listas[fila][i]),
+                        itemCount: lista.length,
+                        itemBuilder: (_, i) => _miniCard(context, lista[i]),
                       ),
                     ),
                     const SizedBox(height: 24),
@@ -115,14 +118,12 @@ class _ContenidoState extends State<_Contenido> {
         },
       );
 
-  // ───────────────────── JSON ─────────────────────
-  Future<List<dynamic>> _obtenerPeliculas(BuildContext ctx) async {
-    final str =
-        await DefaultAssetBundle.of(ctx).loadString("assets/Data/Peliculas.json");
-    return (json.decode(str))["peliculas"];
+  Future<List<Map<String, dynamic>>> _obtenerPeliculas(BuildContext ctx) async {
+    final str = await DefaultAssetBundle.of(ctx)
+        .loadString('assets/Data/Peliculas.json');
+    return (json.decode(str))['peliculas'].cast<Map<String, dynamic>>();
   }
 
-  // ───────────────────── CARRUSEL CARD ─────────────────────
   Widget _cardCarrusel(BuildContext ctx, Map peli) {
     return Card(
       color: Colors.grey[900],
@@ -130,17 +131,15 @@ class _ContenidoState extends State<_Contenido> {
       shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(18)),
       child: Stack(
         children: [
-          // Imagen
           ClipRRect(
             borderRadius: BorderRadius.circular(18),
             child: Image.network(
-              peli["enlaces"]["image"],
+              peli['enlaces']['image'],
               width: double.infinity,
               height: double.infinity,
               fit: BoxFit.cover,
             ),
           ),
-          // Gradiente
           Container(
             decoration: BoxDecoration(
               borderRadius: BorderRadius.circular(18),
@@ -151,7 +150,6 @@ class _ContenidoState extends State<_Contenido> {
               ),
             ),
           ),
-          // Contenido
           Positioned(
             bottom: 16,
             left: 16,
@@ -160,40 +158,40 @@ class _ContenidoState extends State<_Contenido> {
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 Text(
-                  peli["titulo"],
+                  peli['titulo'],
                   style: const TextStyle(
-                      color: Colors.white,
-                      fontSize: 22,
-                      fontWeight: FontWeight.bold),
+                    color: Colors.white,
+                    fontSize: 22,
+                    fontWeight: FontWeight.bold,
+                  ),
                 ),
                 const SizedBox(height: 8),
                 Row(
                   children: [
-                    // Ver película (rojo)
                     ElevatedButton(
                       style: ElevatedButton.styleFrom(
-                          backgroundColor: Colors.redAccent),
+                        backgroundColor: Colors.redAccent,
+                      ),
                       onPressed: () {
                         Navigator.push(
                           ctx,
                           MaterialPageRoute(
                             builder: (_) => VerPelicula(
-                              url: peli["enlaces"]["trailer"],
-                              title: peli["titulo"],
-                            ),
+                                url: peli['enlaces']['trailer'],
+                                title: peli['titulo']),
                           ),
                         );
                       },
-                      child: const Text("Ver película"),
+                      child: const Text('Ver película'),
                     ),
                     const SizedBox(width: 10),
-                    // Descripción (abre modal)
                     OutlinedButton(
                       style: OutlinedButton.styleFrom(
-                          foregroundColor: Colors.redAccent,
-                          side: const BorderSide(color: Colors.redAccent)),
+                        foregroundColor: Colors.redAccent,
+                        side: const BorderSide(color: Colors.redAccent),
+                      ),
                       onPressed: () => _mostrarModal(ctx, peli),
-                      child: const Text("Descripción"),
+                      child: const Text('Descripción'),
                     ),
                   ],
                 ),
@@ -205,7 +203,6 @@ class _ContenidoState extends State<_Contenido> {
     );
   }
 
-  // ───────────────────── MINI CARD ─────────────────────
   Widget _miniCard(BuildContext ctx, Map peli) {
     return GestureDetector(
       onTap: () => _mostrarModal(ctx, peli),
@@ -215,7 +212,7 @@ class _ContenidoState extends State<_Contenido> {
         decoration: BoxDecoration(
           borderRadius: BorderRadius.circular(12),
           image: DecorationImage(
-            image: NetworkImage(peli["enlaces"]["image"]),
+            image: NetworkImage(peli['enlaces']['image']),
             fit: BoxFit.cover,
           ),
         ),
@@ -223,7 +220,6 @@ class _ContenidoState extends State<_Contenido> {
     );
   }
 
-  // ───────────────────── MODAL ─────────────────────
   void _mostrarModal(BuildContext ctx, Map peli) {
     showDialog(
       context: ctx,
@@ -240,70 +236,72 @@ class _ContenidoState extends State<_Contenido> {
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-                    // Imagen
                     ClipRRect(
                       borderRadius: BorderRadius.circular(12),
                       child: Image.network(
-                        peli["enlaces"]["image"],
+                        peli['enlaces']['image'],
                         width: double.infinity,
                         height: 220,
                         fit: BoxFit.cover,
                       ),
                     ),
                     const SizedBox(height: 12),
-                    // Título
                     Text(
-                      peli["titulo"],
+                      peli['titulo'],
                       style: const TextStyle(
-                          color: Colors.white,
-                          fontSize: 22,
-                          fontWeight: FontWeight.bold),
+                        color: Colors.white,
+                        fontSize: 22,
+                        fontWeight: FontWeight.bold,
+                      ),
                     ),
                     const SizedBox(height: 6),
-                    // Año + duración
                     Text(
-                      "${peli["anio"]}  •  ${peli["detalles"]["duracion"]}",
+                      '${peli["anio"]}  •  ${peli["detalles"]["duracion"]}',
                       style: const TextStyle(color: Colors.white70),
                     ),
                     const SizedBox(height: 12),
-                    // Descripción
-                    Text(
-                      peli["descripcion"],
-                      style: const TextStyle(color: Colors.white70),
-                    ),
+                    Text(peli['descripcion'],
+                        style: const TextStyle(color: Colors.white70)),
                     const SizedBox(height: 20),
-                    // Botones
                     Row(
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: [
+                        ////////////////////
                         ElevatedButton.icon(
                           style: ElevatedButton.styleFrom(
                             backgroundColor: Colors.grey[800],
                             foregroundColor: Colors.white,
                           ),
-                          onPressed: () {
-                            // TODO: agregar a lista / favoritos
-                          },
                           icon: const Icon(Icons.add),
-                          label: const Text("Agregar a la lista"),
+                          label: const Text('Agregar a la lista'),
+                          onPressed: () {
+                            FavoritosService.add(peli.cast<String, dynamic>());
+                            Navigator.pop(ctx);
+                            ScaffoldMessenger.of(ctx).showSnackBar(
+                              const SnackBar(
+                                  content:
+                                      Text('Película agregada a la lista')),
+                            );
+                          },
                         ),
+                        /////////////////////////////////
                         const SizedBox(width: 12),
                         ElevatedButton.icon(
                           style: ElevatedButton.styleFrom(
                               backgroundColor: Colors.redAccent),
+                          icon: const Icon(Icons.play_arrow),
+                          label: const Text('Ver película'),
                           onPressed: () {
                             Navigator.push(
                               ctx,
                               MaterialPageRoute(
                                 builder: (_) => VerPelicula(
-                                  url: peli["enlaces"]["trailer"],
-                                  title: peli["titulo"],
+                                  url: peli['enlaces']['trailer'],
+                                  title: peli['titulo'],
                                 ),
                               ),
                             );
                           },
-                          icon: const Icon(Icons.play_arrow),
-                          label: const Text("Ver película"),
                         ),
                       ],
                     ),
@@ -311,7 +309,6 @@ class _ContenidoState extends State<_Contenido> {
                 ),
               ),
             ),
-            // Botón cerrar
             Positioned(
               right: 8,
               top: 4,
