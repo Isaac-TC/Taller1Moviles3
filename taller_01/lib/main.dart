@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:supabase_flutter/supabase_flutter.dart';
-
 import 'package:taller_01/screens/splash_screen.dart';
 import 'package:taller_01/screens/loginScreen.dart';
 import 'package:taller_01/screens/registerScreen.dart';

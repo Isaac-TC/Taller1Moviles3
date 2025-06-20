@@ -48,6 +48,8 @@ class _ContenidoState extends State<_Contenido> {
           }
 
           final pelis = snap.data!; 
+
+          final pelis = snap.data!; // lista filtrada
           if (pelis.isEmpty) {
             return const Center(
               child: Text(

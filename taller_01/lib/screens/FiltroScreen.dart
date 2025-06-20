@@ -4,7 +4,13 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:firebase_database/firebase_database.dart';
 import 'package:taller_01/screens/ver_pelicula.dart';
 
+
 /* --------------------  CACHE PELÍCULAS  -------------------- */
+class PelisRepo {
+  static final Map<String, Map<String, dynamic>> _cache = {};
+
+
+
 class PelisRepo {
   static final Map<String, Map<String, dynamic>> _cache = {};
 
@@ -24,7 +30,10 @@ class PelisRepo {
   }
 }
 
+
 /* ------------------  FAVORITOS EN FIREBASE  ------------------ */
+
+
 class FavoritosService {
   static final _auth = FirebaseAuth.instance;
 
@@ -43,6 +52,8 @@ class FavoritosService {
 }
 
 /* ------------------  PANTALLA DE GUARDADOS  ------------------ */
+
+
 class GuardadosScreen extends StatelessWidget {
   const GuardadosScreen({super.key});
 
@@ -92,7 +103,10 @@ class GuardadosScreen extends StatelessWidget {
       );
 }
 
+
 /* ------------------  CARD + MODAL DETALLE  ------------------ */
+
+
 class _CardGuardado extends StatelessWidget {
   final Map<String, dynamic> peli;
   const _CardGuardado({required this.peli});
