@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 
-// ───── PANTALLAS ─────
+
 import 'package:taller_01/screens/PeliculaSceen.dart';
-import 'package:taller_01/screens/BuscarScreen.dart';  // ← aquí vive abrirBusquedaSimple
+import 'package:taller_01/screens/BuscarScreen.dart';  
 import 'package:taller_01/screens/FiltroScreen.dart';
 import 'package:taller_01/screens/perfilScreen.dart';
 
@@ -20,7 +20,7 @@ class _HomeScreenState extends State<HomeScreen> {
   final List<Widget> paginas = const [
     PeliculasMirar(),
     BuscarPelicula(),
-    FiltroPelicula(),
+    GuardadosScreen(),
     PerfilUser(),
   ];
 
@@ -31,7 +31,7 @@ class _HomeScreenState extends State<HomeScreen> {
 
   @override
   Widget build(BuildContext context) => Scaffold(
-        // ─────────── APP BAR ───────────
+        
         appBar: AppBar(
           elevation: 0,
           toolbarHeight: 72,
@@ -70,7 +70,7 @@ class _HomeScreenState extends State<HomeScreen> {
               ? [
                   IconButton(
                     icon: const Icon(Icons.search),
-                    onPressed: () => abrirBusquedaSimple(context), // <-- aquí
+                    onPressed: () => abrirBusquedaSimple(context), 
                   )
                 ]
               : null,
@@ -85,7 +85,7 @@ class _HomeScreenState extends State<HomeScreen> {
           ),
         ),
 
-        // ─────────── DRAWER ───────────
+        
         drawer: Drawer(
           backgroundColor: Colors.grey[900],
           child: ListView(
@@ -130,10 +130,10 @@ class _HomeScreenState extends State<HomeScreen> {
           ),
         ),
 
-        // ─────────── CUERPO ───────────
+        
         body: IndexedStack(index: indice, children: paginas),
 
-        // ─────────── BOTTOM NAV ───────────
+       
         bottomNavigationBar: BottomNavigationBar(
           currentIndex: indice,
           onTap: (i) => setState(() => indice = i),
@@ -164,7 +164,6 @@ class _HomeScreenState extends State<HomeScreen> {
       );
 }
 
-/// Helper para subtítulo con degradado rojo→blanco
 Widget _gradientText(String text, {Key? key}) {
   const grad = LinearGradient(colors: [Colors.redAccent, Colors.white]);
   return Text(
