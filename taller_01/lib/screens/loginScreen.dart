@@ -13,7 +13,6 @@ class _LoginScreenState extends State<LoginScreen> {
   final passwordController = TextEditingController();
   final _focusEmail = FocusNode();
 
-
   bool _showBrand = false;
 
   @override
@@ -134,8 +133,16 @@ class _LoginScreenState extends State<LoginScreen> {
                           ),
                           const SizedBox(height: 32),
                           ElevatedButton.icon(
-                            icon: const Icon(Icons.login),
+                            icon: const Icon(Icons.login, color: Colors.white),
                             onPressed: handleLogin,
+                            style: ElevatedButton.styleFrom(
+                              backgroundColor: Colors.redAccent,
+                              foregroundColor: Colors.white,
+                              padding: const EdgeInsets.symmetric(
+                                  vertical: 12, horizontal: 24),
+                              textStyle: const TextStyle(
+                                  fontSize: 16, fontWeight: FontWeight.bold),
+                            ),
                             label: const Text('Ingresar'),
                           ),
                           TextButton(

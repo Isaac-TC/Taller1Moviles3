@@ -1,7 +1,15 @@
+// ignore_for_file: constant_identifier_names
+
 import 'dart:convert';
 import 'package:flutter/material.dart';
+
+import 'package:taller_01/screens/BuscarScreen.dart';
 import 'package:taller_01/screens/FiltroScreen.dart';
 import 'package:taller_01/screens/ver_pelicula.dart';
+
+
+import 'package:url_launcher/url_launcher.dart'; // (sin usar por ahora)
+ 
 
 class PeliculasMirar extends StatelessWidget {
   const PeliculasMirar({super.key});
@@ -9,11 +17,7 @@ class PeliculasMirar extends StatelessWidget {
   @override
   Widget build(BuildContext context) => Scaffold(
         backgroundColor: Colors.black,
-        appBar: AppBar(
-          backgroundColor: Colors.redAccent,
-          foregroundColor: Colors.white,
-          elevation: 0,
-        ),
+      
         body: const Padding(
           padding: EdgeInsets.all(12),
           child: _Contenido(),
@@ -46,8 +50,9 @@ class _ContenidoState extends State<_Contenido> {
             return const Center(child: CircularProgressIndicator());
           }
 
-          final pelis = snap.data!;
+          final pelis = snap.data!; 
 
+   
           final Map<String, List<Map>> porGenero = {};
           for (final p in pelis) {
             for (final g in (p['genero'] as List)) {
@@ -58,6 +63,7 @@ class _ContenidoState extends State<_Contenido> {
 
           return ListView(
             children: [
+       
               SizedBox(
                 height: 330,
                 child: PageView.builder(
@@ -87,6 +93,8 @@ class _ContenidoState extends State<_Contenido> {
                 ),
               ),
               const SizedBox(height: 24),
+
+           
               ...generos.map((g) {
                 final lista = porGenero[g]!;
                 return Column(
@@ -118,9 +126,10 @@ class _ContenidoState extends State<_Contenido> {
         },
       );
 
+
   Future<List<Map<String, dynamic>>> _obtenerPeliculas(BuildContext ctx) async {
-    final str = await DefaultAssetBundle.of(ctx)
-        .loadString('assets/Data/Peliculas.json');
+    final str =
+        await DefaultAssetBundle.of(ctx).loadString('assets/Data/Peliculas.json');
     return (json.decode(str))['peliculas'].cast<Map<String, dynamic>>();
   }
 
@@ -173,14 +182,16 @@ class _ContenidoState extends State<_Contenido> {
                         backgroundColor: Colors.redAccent,
                       ),
                       onPressed: () {
+
                         Navigator.push(
                           ctx,
                           MaterialPageRoute(
-                            builder: (_) => VerPelicula(
-                                url: peli['enlaces']['trailer'],
-                                title: peli['titulo']),
+                            builder: (_) =>
+                                VerPelicula(url: peli['enlaces']['trailer'], title: peli['titulo']),
                           ),
                         );
+
+                        
                       },
                       child: const Text('Ver película'),
                     ),
@@ -282,6 +293,7 @@ class _ContenidoState extends State<_Contenido> {
                                   content:
                                       Text('Película agregada a la lista')),
                             );
+                            
                           },
                         ),
                         /////////////////////////////////
@@ -292,6 +304,7 @@ class _ContenidoState extends State<_Contenido> {
                           icon: const Icon(Icons.play_arrow),
                           label: const Text('Ver película'),
                           onPressed: () {
+
                             Navigator.push(
                               ctx,
                               MaterialPageRoute(
@@ -301,6 +314,9 @@ class _ContenidoState extends State<_Contenido> {
                                 ),
                               ),
                             );
+
+                          
+
                           },
                         ),
                       ],
