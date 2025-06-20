@@ -35,7 +35,7 @@ class _VerPeliculaState extends State<VerPelicula> {
       yt = YoutubePlayerController.fromVideoId(
         videoId: YoutubePlayerController.convertUrlToId(u)!,
         params: const YoutubePlayerParams(
-                  showControls: true,
+          showControls: true,
           showFullscreenButton: true,
         ),
       );
@@ -52,10 +52,10 @@ class _VerPeliculaState extends State<VerPelicula> {
             allowMuting: true,
             allowPlaybackSpeedChanging: true,
           );
-          setState(() {});            
+          setState(() {});
         });
 
-  
+    // ────────────── 3. Cualquier otro enlace ──────────────
     } else {
       tipo = _Tipo.web;
     }
@@ -63,7 +63,7 @@ class _VerPeliculaState extends State<VerPelicula> {
 
   @override
   void dispose() {
-    yt?.close();      
+    yt?.close();
     chewie?.dispose();
     vp?.dispose();
     super.dispose();
@@ -73,13 +73,10 @@ class _VerPeliculaState extends State<VerPelicula> {
     switch (tipo) {
       case _Tipo.youtube:
         return YoutubePlayer(controller: yt!);
-
       case _Tipo.video:
-        if (chewie == null) {
-          return const Center(child: CircularProgressIndicator());
-        }
-        return Chewie(controller: chewie!);
-
+        return chewie == null
+            ? const Center(child: CircularProgressIndicator())
+            : Chewie(controller: chewie!);
       case _Tipo.web:
         return WebViewWidget(
           controller: WebViewController()
@@ -97,8 +94,8 @@ class _VerPeliculaState extends State<VerPelicula> {
 
         // Contenedor del reproductor
         final content = isLandscape
-            ? SizedBox.expand(child: _player())       
-            : Center(                                     
+            ? SizedBox.expand(child: _player())
+            : Center(
                 child: AspectRatio(
                   aspectRatio: 16 / 9,
                   child: _player(),
@@ -107,12 +104,29 @@ class _VerPeliculaState extends State<VerPelicula> {
 
         return Scaffold(
           backgroundColor: Colors.black,
+
+          // ──────────  APP BAR con gradiente ──────────
           appBar: isLandscape
-              ? null                                   
+              ? null
               : AppBar(
-                  title: Text(widget.title),
-                  backgroundColor: Colors.redAccent,
+                  elevation: 0,
+                  backgroundColor: Colors.transparent,
+                  iconTheme: const IconThemeData(color: Colors.white),
+                  title: Text(
+                    widget.title,
+                    style: const TextStyle(color: Colors.white),
+                  ),
+                  flexibleSpace: Container(
+                    decoration: const BoxDecoration(
+                      gradient: LinearGradient(
+                        colors: [Colors.redAccent, Colors.black],
+                        begin: Alignment.topLeft,
+                        end: Alignment.bottomRight,
+                      ),
+                    ),
+                  ),
                 ),
+
           body: content,
         );
       },

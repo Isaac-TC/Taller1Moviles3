@@ -55,7 +55,7 @@ class _SplashScreenState extends State<SplashScreen>
                 ),
                 SizedBox(height: 8),
                 Text(
-                  'solo en @Play Top',
+                  'solo en Play Top',
                   style: TextStyle(
                       color: Colors.redAccent,
                       fontSize: 24,

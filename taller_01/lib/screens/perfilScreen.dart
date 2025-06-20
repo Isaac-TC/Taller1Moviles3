@@ -21,104 +21,114 @@ class _PerfilUserState extends State<PerfilUser> {
     cargarDatos();
   }
 
-  void cargarDatos() async {
-    final ref = FirebaseDatabase.instance.ref().child('personas').child(user.uid);
-    final snapshot = await ref.get();
+  Future<void> cargarDatos() async {
+    final ref =
+        FirebaseDatabase.instance.ref().child('personas').child(user.uid);
+    final snap = await ref.get();
 
-    if (snapshot.exists) {
-      setState(() {
-        datosUsuario = Map<String, dynamic>.from(snapshot.value as Map);
-      });
+    if (snap.exists) {
+      setState(() =>
+          datosUsuario = Map<String, dynamic>.from(snap.value as Map));
     } else {
-      setState(() {
-        datosUsuario = {'error': 'No se encontraron datos'};
-      });
+      setState(() => datosUsuario = {'error': 'No se encontraron datos'});
     }
   }
 
   @override
   Widget build(BuildContext context) {
-    final isDark = Theme.of(context).brightness == Brightness.dark;
-    final Color accentColor = Colors.redAccent;
+    const accent = Colors.redAccent;
+    const valueStyle = TextStyle(fontSize: 18, color: Colors.white);
+    const labelStyle =
+        TextStyle(fontWeight: FontWeight.bold, color: accent);
 
-    final textStyle = TextStyle(fontSize: 18, color: isDark ? Colors.white : Colors.black87);
-    final labelStyle = TextStyle(fontWeight: FontWeight.bold, color: accentColor);
-
+    // 1. Cargando…
     if (datosUsuario == null) {
       return const Scaffold(
+        backgroundColor: Colors.black,
         body: Center(child: CircularProgressIndicator()),
       );
     }
 
+    // 2. Sin datos
     if (datosUsuario!.containsKey('error')) {
-      return Scaffold(
-        body: Center(child: Text(datosUsuario!['error'], style: textStyle)),
+      return const Scaffold(
+        backgroundColor: Colors.black,
+        body:
+            Center(child: Text('No se encontraron datos', style: valueStyle)),
       );
     }
 
     final avatarUrl = datosUsuario!['avatar'] ?? '';
 
     return Scaffold(
-      backgroundColor: isDark ? Colors.black : Colors.white,
-      appBar: AppBar(
-        title: const Text('Mi Perfil'),
-        backgroundColor: accentColor,
-        centerTitle: true,
-      ),
+      backgroundColor: Colors.black,
+
+      // 🔸 SIN AppBar (se usa el encabezado global)
+
       body: SingleChildScrollView(
         padding: const EdgeInsets.all(24),
         child: Column(
           children: [
-            if (avatarUrl.isNotEmpty)
-              CircleAvatar(
-                backgroundImage: NetworkImage('$avatarUrl?t=${DateTime.now().millisecondsSinceEpoch}'),
-                radius: 70,
-                backgroundColor: Colors.grey[800],
-              )
-            else
-              const CircleAvatar(
-                radius: 70,
-                backgroundColor: Colors.grey,
-                child: Icon(Icons.person, size: 70, color: Colors.white),
-              ),
+            // Avatar
+            avatarUrl.isNotEmpty
+                ? CircleAvatar(
+                    radius: 70,
+                    backgroundImage: NetworkImage(
+                        '$avatarUrl?t=${DateTime.now().millisecondsSinceEpoch}'),
+                    backgroundColor: Colors.grey[800],
+                  )
+                : const CircleAvatar(
+                    radius: 70,
+                    backgroundColor: Colors.grey,
+                    child:
+                        Icon(Icons.person, size: 70, color: Colors.white),
+                  ),
+
             const SizedBox(height: 30),
+
+            // Tarjeta de datos
             Card(
-              shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(16)),
-              color: isDark ? Colors.grey[900] : Colors.grey[100],
+              shape:
+                  RoundedRectangleBorder(borderRadius: BorderRadius.circular(16)),
+              color: Colors.grey[900],
               elevation: 6,
               child: Padding(
                 padding: const EdgeInsets.all(20),
                 child: Column(
                   children: [
-                    infoRow("Nombre", datosUsuario!['name'], labelStyle, textStyle),
-                    infoRow("Apellido", datosUsuario!['lastname'], labelStyle, textStyle),
-                    infoRow("Edad", datosUsuario!['age'].toString(), labelStyle, textStyle),
-                    infoRow("Cédula", datosUsuario!['cedula'], labelStyle, textStyle),
-                    infoRow("Correo", datosUsuario!['email'], labelStyle, textStyle),
+                    infoRow('Nombre',   datosUsuario!['name'], labelStyle, valueStyle),
+                    infoRow('Apellido', datosUsuario!['lastname'], labelStyle, valueStyle),
+                    infoRow('Edad',     '${datosUsuario!['age']}', labelStyle, valueStyle),
+                    infoRow('Cédula',   datosUsuario!['cedula'], labelStyle, valueStyle),
+                    infoRow('Correo',   datosUsuario!['email'], labelStyle, valueStyle),
                   ],
                 ),
               ),
             ),
+
             const SizedBox(height: 30),
+
+            // Botón editar
             ElevatedButton.icon(
+              style: ElevatedButton.styleFrom(
+                backgroundColor: accent,
+                foregroundColor: Colors.white,
+                padding:
+                    const EdgeInsets.symmetric(horizontal: 30, vertical: 14),
+                shape: RoundedRectangleBorder(
+                    borderRadius: BorderRadius.circular(12)),
+              ),
               onPressed: () async {
                 await Navigator.push(
                   context,
                   MaterialPageRoute(
-                    builder: (context) => EditarPerfilScreen(datos: datosUsuario!),
+                    builder: (_) => EditarPerfilScreen(datos: datosUsuario!),
                   ),
                 );
-                cargarDatos();
+                cargarDatos(); // refresca
               },
               icon: const Icon(Icons.edit),
-              label: const Text("Editar Perfil"),
-              style: ElevatedButton.styleFrom(
-                backgroundColor: accentColor,
-                foregroundColor: Colors.white,
-                padding: const EdgeInsets.symmetric(horizontal: 30, vertical: 14),
-                shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(12)),
-                textStyle: const TextStyle(fontSize: 16),
-              ),
+              label: const Text('Editar Perfil'),
             ),
           ],
         ),
@@ -126,16 +136,17 @@ class _PerfilUserState extends State<PerfilUser> {
     );
   }
 
-  Widget infoRow(String label, String value, TextStyle labelStyle, TextStyle valueStyle) {
-    return Padding(
-      padding: const EdgeInsets.symmetric(vertical: 8),
-      child: Row(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: [
-          SizedBox(width: 110, child: Text('$label:', style: labelStyle)),
-          Expanded(child: Text(value, style: valueStyle)),
-        ],
-      ),
-    );
-  }
+  // Fila de info
+  Widget infoRow(
+          String label, String value, TextStyle lStyle, TextStyle vStyle) =>
+      Padding(
+        padding: const EdgeInsets.symmetric(vertical: 8),
+        child: Row(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            SizedBox(width: 110, child: Text('$label:', style: lStyle)),
+            Expanded(child: Text(value, style: vStyle)),
+          ],
+        ),
+      );
 }
