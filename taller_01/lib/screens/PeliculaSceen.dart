@@ -47,6 +47,8 @@ class _ContenidoState extends State<_Contenido> {
             return const Center(child: CircularProgressIndicator());
           }
 
+          final pelis = snap.data!; 
+
           final pelis = snap.data!; // lista filtrada
           if (pelis.isEmpty) {
             return const Center(

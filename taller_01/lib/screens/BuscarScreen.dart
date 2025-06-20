@@ -1,9 +1,7 @@
-import 'dart:convert';
+
 import 'package:flutter/material.dart';
 import 'package:taller_01/screens/ver_pelicula.dart';
 import 'dart:convert';
-import 'package:flutter/material.dart';
-import 'package:taller_01/screens/ver_pelicula.dart';
 
 
 void abrirBusquedaSimple(BuildContext context) {
