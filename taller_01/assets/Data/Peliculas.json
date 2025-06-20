@@ -1,6 +1,7 @@
 {
   "peliculas": [
     {
+      "id":1,
       "titulo": "Lilo & Stitch",
       "anio": 2025,
       "descripcion": "La divertidísima y conmovedora historia de una solitaria niña hawaiana y el extraterrestre fugitivo que ayuda a reconstruir su familia rota. Una reinterpretación en acción real del clásico animado de 2002.",
@@ -17,6 +18,7 @@
       "genero": ["aventura", "Familiar", "Ciencia Ficcion"]
     },
     {
+      "id":2,
       "titulo": "Inside Out 2",
       "anio": 2024,
       "descripcion": "Riley ahora es una adolescente enfrentando nuevas emociones como ansiedad, vergüenza y envidia. Secuela de la aclamada película animada de Pixar.",
@@ -33,6 +35,7 @@
       "genero": ["Animación", "Aventura", "Comedia"]
     },
     {
+      "id":2,
       "titulo": "Furiosa: A Mad Max Saga",
       "anio": 2024,
       "descripcion": "La historia de origen de Furiosa antes de 'Fury Road', revelando cómo fue secuestrada y luchó por su libertad.",
@@ -49,6 +52,7 @@
       "genero": ["Acción", "Aventura", "Ciencia Ficción"]
     },
     {
+      "id":3,
       "titulo": "Deadpool & Wolverine",
       "anio": 2024,
       "descripcion": "Deadpool regresa con una misión multiversal que lo une con Wolverine. Humor irreverente, acción sin filtros y muchos cameos explosivos.",
@@ -65,6 +69,7 @@
       "genero": ["Acción", "Comedia", "Superhéroes"]
     },
     {
+      "id":4,
       "titulo": "The Garfield Movie",
       "anio": 2024,
       "descripcion": "El famoso gato amante de la lasaña regresa en una nueva aventura animada llena de humor, cuando descubre a su padre perdido.",
@@ -81,6 +86,7 @@
       "genero": ["Animación", "Comedia", "Familiar"]
     },
     {
+      "id":5,
       "titulo": "Mission: Impossible – The Final Reckoning",
       "anio": 2025,
       "descripcion": "Tom Cruise vuelve como Ethan Hunt en la última misión imposible, una espectacular despedida cargada de acción épica.",
@@ -97,6 +103,7 @@
       "genero": ["Acción", "Aventura", "Thriller"]
     },
     {
+      "id":6,
       "titulo": "28 Years Later",
       "anio": 2025,
       "descripcion": "Tercera entrega de la saga postapocalíptica dirigida por Danny Boyle, con Jodie Comer, Aaron Taylor‑Johnson y Ralph Fiennes.",
@@ -113,6 +120,7 @@
       "genero": ["Terror", "Ciencia Ficción", "Suspense"]
     },
     {
+      "id":7,
       "titulo": "The Running Man",
       "anio": 2025,
       "descripcion": "Adaptación fiel de la novela de Stephen King, dirigida por Edgar Wright, donde Glen Powell es cazado vivo en un peligroso show.",
@@ -129,6 +137,7 @@
       "genero": ["Acción", "Ciencia Ficción", "Thriller"]
     },
     {
+      "id":8,
       "titulo": "Inception",
       "anio": 2010,
       "descripcion": "Un ladrón que roba secretos a través del uso de la tecnología compartida de sueños recibe la tarea inversa de implantar una idea en la mente de un CEO.",
@@ -145,6 +154,7 @@
       "genero": ["Acción", "Ciencia Ficción", "Suspenso"]
     },
     {
+      "id":9,
       "titulo": "El laberinto del fauno",
       "anio": 2006,
       "descripcion": "En el contexto de la posguerra española, una niña descubre un mundo fantástico mientras su padrastro fascista aterroriza a su madre.",
@@ -161,6 +171,7 @@
       "genero": ["Drama", "Fantasía", "Guerra"]
     },
     {
+      "id":10,
       "titulo": "Forrest Gump",
       "anio": 1994,
       "descripcion": "La historia conmovedora de un hombre simple que, sin proponérselo, se convierte en testigo de momentos clave de la historia de EEUU.",
@@ -177,6 +188,7 @@
       "genero": ["Drama", "Romance"]
     },
     {
+      "id":11,
       "titulo": "The Matrix",
       "anio": 1999,
       "descripcion": "Un hacker descubre que el mundo real es una simulación y se une a una rebelión contra las máquinas.",
@@ -193,6 +205,7 @@
       "genero": ["Acción", "Ciencia Ficción"]
     },
     {
+      "id":12,
       "titulo": "La lista de Schindler",
       "anio": 1993,
       "descripcion": "Un empresario alemán salva la vida de más de mil refugiados polacos durante el Holocausto.",
@@ -209,6 +222,7 @@
       "genero": ["Biografía", "Drama", "Historia"]
     },
     {
+      "id":13,
       "titulo": "Pulp Fiction",
       "anio": 1994,
       "descripcion": "Varias historias entrelazadas que siguen a criminales en Los Ángeles en un estilo narrativo poco convencional.",
@@ -225,6 +239,7 @@
       "genero": ["Crimen", "Drama"]
     },
     {
+      "id":14,
       "titulo": "El viaje de Chihiro",
       "anio": 2001,
       "descripcion": "Una niña entra en un mundo de espíritus y dioses, donde debe trabajar en un balneario para salvar a sus padres.",
@@ -241,6 +256,7 @@
       "genero": ["Animación", "Aventura", "Fantasía"]
     },
     {
+      "id":15,
       "titulo": "Gladiador",
       "anio": 2000,
       "descripcion": "Un general romano se convierte en gladiador para vengar el asesinato de su familia y emperador.",
@@ -257,6 +273,7 @@
       "genero": ["Acción", "Aventura", "Drama"]
     },
     {
+      "id":16,
       "titulo": "El señor de los anillos: El retorno del rey",
       "anio": 2003,
       "descripcion": "La épica batalla final por la Tierra Media y el destino del Anillo Único llega a su conclusión.",
@@ -273,6 +290,7 @@
       "genero": ["Aventura", "Fantasía", "Acción"]
     },
     {
+      "id":17,
       "titulo": "Titanic",
       "anio": 1997,
       "descripcion": "Un joven artista pobre y una mujer de alta sociedad se enamoran a bordo del infortunado RMS Titanic.",
@@ -289,6 +307,7 @@
       "genero": ["Drama", "Romance"]
     },
     {
+      "id":18,
       "titulo": "Interstellar",
       "anio": 2014,
       "descripcion": "Un grupo de astronautas viaja a través de un agujero de gusano en busca de un nuevo hogar para la humanidad.",
@@ -305,6 +324,7 @@
       "genero": ["Aventura", "Drama", "Ciencia Ficción"]
     },
     {
+      "id":19,
       "titulo": "El club de la pelea",
       "anio": 1999,
       "descripcion": "Un hombre insomne y un vendedor de jabón forman un club clandestino que evoluciona en algo mucho más grande.",
@@ -321,6 +341,7 @@
       "genero": ["Drama", "Suspenso"]
     },
     {
+      "id":20,
       "titulo": "La La Land",
       "anio": 2016,
       "descripcion": "Un músico de jazz y una aspirante a actriz se enamoran mientras persiguen sus sueños en Los Ángeles.",
@@ -337,6 +358,7 @@
       "genero": ["Comedia", "Drama", "Música"]
     },
     {
+      "id":21,
       "titulo": "Mad Max: Fury Road",
       "anio": 2015,
       "descripcion": "En un mundo postapocalíptico, Max se une a Furiosa para huir de un tirano en una huida épica por el desierto.",
@@ -353,6 +375,7 @@
       "genero": ["Acción", "Aventura", "Ciencia Ficción"]
     },
     {
+      "id":22,
       "titulo": "Her",
       "anio": 2013,
       "descripcion": "En un futuro cercano, un escritor solitario se enamora de una inteligencia artificial avanzada.",
@@ -369,6 +392,7 @@
       "genero": ["Drama", "Romance", "Ciencia Ficción"]
     },
     {
+      "id":23,
       "titulo": "Whiplash",
       "anio": 2014,
       "descripcion": "Un joven baterista se enfrenta a un exigente profesor que lo lleva al límite de su resistencia mental y artística.",
@@ -385,6 +409,7 @@
       "genero": ["Drama", "Música"]
     },
     {
+      "id":24,
       "titulo": "Toy Story",
       "anio": 1995,
       "descripcion": "Un grupo de juguetes cobra vida cuando los humanos no están presentes, y un nuevo juguete desafía al líder del grupo.",
@@ -401,6 +426,7 @@
       "genero": ["Animación", "Aventura", "Comedia"]
     },
     {
+      "id":25,
       "titulo": "El renacido",
       "anio": 2015,
       "descripcion": "Basada en hechos reales, un trampero lucha por sobrevivir y vengarse tras ser dejado por muerto.",
@@ -417,6 +443,7 @@
       "genero": ["Aventura", "Drama", "Historia"]
     },
     {
+      "id":26,
       "titulo": "Avatar: The Way of Water",
       "anio": 2022,
       "descripcion": "Secuela de Avatar, donde la familia Sully explora los océanos de Pandora y deben enfrentar nuevos peligros.",
@@ -433,6 +460,7 @@
       "genero": ["Acción", "Aventura", "Ciencia Ficción"]
     },
     {
+      "id":27,
       "titulo": "Joker",
       "anio": 2019,
       "descripcion": "Una mirada oscura al origen del villano más icónico de Gotham, un hombre solitario que se convierte en el Joker.",
@@ -449,6 +477,7 @@
       "genero": ["Crimen", "Drama", "Thriller"]
     },
     {
+      "id":28,
       "titulo": "Parasite",
       "anio": 2019,
       "descripcion": "Una familia pobre se infiltra en los más privilegiados, desencadenando una serie de eventos inesperados.",
